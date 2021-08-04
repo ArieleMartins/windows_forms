@@ -1,0 +1,86 @@
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\CRUD.exe.config
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\CRUD.exe
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\CRUD.pdb
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\Google.Protobuf.dll
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\MySql.Data.dll
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\System.Buffers.dll
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\System.Memory.dll
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\Zstandard.Net.dll
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\Google.Protobuf.pdb
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\Google.Protobuf.xml
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\MySql.Data.xml
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\System.Buffers.xml
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\System.Memory.xml
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.csproj.AssemblyReference.cache
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Cadastro_aluno.resources
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Cadastro_Func.resources
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Consultar_alunos.resources
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Consulta_aluno.resources
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Consulta_func.resources
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Consulta_funcesp.resources
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Consulta_funcesp2.resources
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Consulta_Print.resources
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Login.resources
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Menu.resources
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Properties.Resources.resources
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Splash.resources
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.csproj.GenerateResource.cache
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.csproj.CopyComplete
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.exe
+C:\Users\PC\Desktop\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.pdb
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\CRUD.exe.config
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\CRUD.exe
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\CRUD.pdb
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\Google.Protobuf.dll
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\MySql.Data.dll
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\System.Buffers.dll
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\System.Memory.dll
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\Zstandard.Net.dll
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\Google.Protobuf.pdb
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\Google.Protobuf.xml
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\MySql.Data.xml
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\System.Buffers.xml
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\System.Memory.xml
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.csproj.AssemblyReference.cache
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Cadastro_aluno.resources
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Cadastro_Func.resources
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Consultar_alunos.resources
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Consulta_aluno.resources
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Consulta_func.resources
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Consulta_funcesp.resources
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Consulta_funcesp2.resources
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Consulta_Print.resources
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Login.resources
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Menu.resources
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Properties.Resources.resources
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.Splash.resources
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.csproj.GenerateResource.cache
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.csproj.CoreCompileInputs.cache
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.csproj.CopyComplete
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.exe
+C:\Users\littl\OneDrive\Área de Trabalho\Senac\Tarefas-Emerson\C-Sharp\VS19 - C#\CRUD\CRUD\obj\Debug\CRUD.pdb
