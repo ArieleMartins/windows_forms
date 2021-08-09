@@ -14,12 +14,16 @@ namespace CRUD
 {
     public partial class Cadastro_Func : Form
     {
+        private List<int> lista = new List<int>();
         private string origem;
         private string foto;
         private string destino;
         private DialogResult resp;
         private int id;
+        private int idusuario;
+        private int cad;
         private string usuario;
+        private string senha;
         public Cadastro_Func()
         {
             InitializeComponent();
@@ -27,12 +31,15 @@ namespace CRUD
 
         private void Cadastro_Func_Load(object sender, EventArgs e)
         {
+            stripHorario.Text = DateTime.Now.ToString();
+            tmrHora.Enabled = true;
             rbAdmin.Visible = false;
             rbUsu.Visible = false;
             rdF.Checked = true;
             rbAdmin.Checked = false;
             rbUsu.Checked = false;
             gpLogin.Visible = false;
+            ptFoto.Image = Properties.Resources.Design_sem_nome;
             this.Size = new Size(816, 536);
             BD bd = new BD();
             bd.CargoCB();
@@ -114,12 +121,12 @@ namespace CRUD
                             bd.Cidade = txtCidade.Text;
                             bd.Salario = double.Parse(txtSal.Text);
                             bd.Ctps = txtCTPS.Text;
-                            if (foto == null || origem == null)
+                        if (foto == null || origem == null)
+                        {
+                            resp = MessageBox.Show("Nenhuma foto foi selecionada deseja continuar?", "Sem foto", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                            if (resp == DialogResult.No)
                             {
-                                resp = MessageBox.Show("Nenhuma foto foi selecionada deseja continuar?", "Sem foto", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                                if (resp == DialogResult.No)
-                                {
-                                    return;
+                                return;
                             }
                             else
                             {
@@ -190,7 +197,55 @@ namespace CRUD
                     {
                         MessageBox.Show("Não foi possivel encontrar o diretorio de destino", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                
+                    bd.Lista();
+                    if (bd.Tabela.HasRows)
+                    {
+                        while (bd.Tabela.Read())
+                        {
+
+                            lista.Add(int.Parse(bd.Tabela["func_cad"].ToString()));
+                        }
+                    }else{
+                        lista.Add(0);
+                    }
+                    bd.Tabela.Close();
+                    int quant = lista.Count() - 1;
+                    int num = lista[quant];
+                    //MessageBox.Show(lista[quant].ToString());
+                    cad = num + 1;
+                    
+                    
+                    bd.Usuario = usuario;
+                    bd.Senha = senha;
+                    bd.IdLog();
+                    if(bd.Tabela.Read())
+                    {
+                        if (bd.Tabela["id_func"].ToString() == "")
+                        {
+                            idusuario = 0;
+                        }
+                        else
+                        {
+                            idusuario = int.Parse(bd.Tabela["id_func"].ToString());
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Conta não possui funcionario vinculado", "Conta Sem Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    bd.Tabela.Close();
+                    bd.Id = idusuario;
+                    bd.Cad = cad;
+                    bd.Funcionarios();
+                    if(bd.Resp > 0)
+                    {
+                        Console.WriteLine("Tabela de funcionarios cadastrada com sucesso");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi possivel vincular o funcionario com o usuario", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    bd.Cad = cad;
                     bd.cadastroFunc();
                     bd.Cpf = maskCPF.Text;
                     bd.IdFunc();
@@ -200,6 +255,7 @@ namespace CRUD
                         if (bd.Tabela.Read())
                         {
                             id = int.Parse(bd.Tabela["id_func"].ToString());
+                           
                             if (checkSim.Checked)
                             {
                             if (String.IsNullOrWhiteSpace(txtUsuario.Text) || String.IsNullOrWhiteSpace(txtSenha.Text))
@@ -297,6 +353,7 @@ namespace CRUD
                         txtCTPS.Clear();
                         txtNome.Focus();
                         checkSim.Checked = false;
+                        foto = null;
                         ptFoto.Image = Properties.Resources.Design_sem_nome;
                     }
                     bd.Conexao.Close();
@@ -311,6 +368,7 @@ namespace CRUD
             Menu menu = new Menu();
             BD bd = new BD();
             menu.Usuario = usuario;
+            menu.Senha = senha;
             this.Hide();
             menu.ShowDialog();
         }
@@ -333,7 +391,7 @@ namespace CRUD
                     }
                 }catch (System.IO.DirectoryNotFoundException err)
                 {
-                    MessageBox.Show("Não foi possivel encontrar o deiretorio de destino", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Não foi possivel encontrar o diretorio de destino", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }catch (Exception)
             {
@@ -344,7 +402,10 @@ namespace CRUD
         {
             set { this.usuario = value; }
         }
-
+        public string Senha
+        {
+            set { this.senha = value; }
+        }
         private void pcBImg_MouseEnter(object sender, EventArgs e)
         {
             pcBImg.Image = Properties.Resources.CameraIcon2Brilante;
@@ -353,6 +414,13 @@ namespace CRUD
         private void pcBImg_MouseLeave(object sender, EventArgs e)
         {
             pcBImg.Image = Properties.Resources.CameraIcon2;
+        }
+
+       
+
+        private void tmrHora_Tick_1(object sender, EventArgs e)
+        {
+            stripHorario.Text = DateTime.Now.ToString();
         }
     }
 }

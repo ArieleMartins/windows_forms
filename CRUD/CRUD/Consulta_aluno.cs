@@ -13,6 +13,7 @@ namespace CRUD
     public partial class Consulta_aluno : Form
     {
         private string usuario;
+        private string senha;
         private string cpf;
         private int id;
         private string privi;
@@ -20,6 +21,7 @@ namespace CRUD
         private string foto;
         private string destino;
         private string antigo;
+        private string responsavel;
         private int id_consulta;
         private string local;
         private int idcurso;
@@ -30,6 +32,9 @@ namespace CRUD
 
         private void Consulta_aluno_Load(object sender, EventArgs e)
         {
+            stripHorario.Text = DateTime.Now.ToString();
+            tmrHora.Enabled = true;
+            ptFoto.Image = Properties.Resources.Design_sem_nome;
             BD bd = new BD();
             bd.Curso();
             while (bd.Tabela.Read())
@@ -77,7 +82,8 @@ namespace CRUD
                 }
                 else
                 {
-                    txtResponsavel.Text = bd.Tabela["resp_a"].ToString();
+                    responsavel = bd.Tabela["resp_a"].ToString();
+                    txtResponsavel.Text = responsavel;
                 }
                 if (bd.Tabela["sexo_a"].ToString() == "F")
                 {
@@ -126,6 +132,10 @@ namespace CRUD
         {
             set { this.usuario = value; }
         }
+        public string Senha
+        {
+            set { this.senha = value; }
+        }
         public string Cpf
         {
             set { this.cpf = value; }
@@ -140,6 +150,7 @@ namespace CRUD
             Consultar_alunos alunos = new Consultar_alunos();
             alunos.Usuario = usuario;
             alunos.Privi = privi;
+            alunos.Senha = senha;
             this.Hide();
             alunos.ShowDialog();
         }
@@ -232,6 +243,7 @@ namespace CRUD
                             bd.Pais = cbPAis.SelectedIndex + 1;
                             bd.Rg = maskRG.Text;
                             bd.Rua = txtRua.Text;
+                            bd.Responsavel = txtResponsavel.Text;
                             bd.Tel = maskTel.Text;
                             if (rdF.Checked)
                             {
@@ -357,9 +369,17 @@ namespace CRUD
                     Consultar_alunos alunos = new Consultar_alunos();
                     alunos.Usuario = usuario;
                     alunos.Privi = privi;
-                    if (File.Exists(local))
+                    try
                     {
-                        File.Delete(local);
+                        ptFoto.Image.Dispose();
+                        if (File.Exists(local))
+                        {
+                            
+                            File.Delete(local);
+                        }
+                    }catch (System.IO.IOException err)
+                    {
+                        MessageBox.Show("Não é possivel deletar a imagem, pois outro formulario está usando", "Imagem Sendo Usada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     this.Hide();
                     alunos.ShowDialog();
@@ -372,6 +392,11 @@ namespace CRUD
                 bd.Conexao.Close();
                 
             }
+        }
+
+        private void tmrHora_Tick(object sender, EventArgs e)
+        {
+            stripHorario.Text = DateTime.Now.ToString();
         }
     }
 }

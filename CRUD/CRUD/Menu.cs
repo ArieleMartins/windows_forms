@@ -99,6 +99,7 @@ namespace CRUD
             Cadastro_Func funcionario = new Cadastro_Func();
             lblUsuario.Text = "";
             funcionario.Usuario = usuario;
+            funcionario.Senha = senha;
             this.Hide();
             funcionario.ShowDialog();
         }
@@ -107,6 +108,7 @@ namespace CRUD
         {
             Consulta_func consulta = new Consulta_func();
             consulta.Usu = usuario;
+            consulta.Senha = senha;
             this.Hide();
             consulta.ShowDialog();
         }
@@ -129,6 +131,8 @@ namespace CRUD
         {
             Consultar_alunos consulta = new Consultar_alunos();
             consulta.Usuario = usuario;
+            consulta.Senha = senha;
+            consulta.Privi = privi;
             this.Hide();
             consulta.ShowDialog();
         }
@@ -147,39 +151,71 @@ namespace CRUD
             Consulta_Print imprimir = new Consulta_Print();
             imprimir.Privi = privi;
             imprimir.Usuario = usuario;
+            imprimir.Senha = senha;
             this.Hide();
             imprimir.ShowDialog();
         }
 
         private void navegadorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("chrome.exe");
-        }
+            try { 
+                Process.Start("chrome.exe");
+            }catch (System.ComponentModel.Win32Exception err)
+            {
+                MessageBox.Show("Aplicação não encontrada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+}
 
         private void wordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("winword");
+            try
+            {
+                Process.Start("winword");
+            }catch (System.ComponentModel.Win32Exception err)
+            {
+                MessageBox.Show("Aplicação não encontrada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void excelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("excel");
-        }
+            try { 
+                Process.Start("excel");
+            }catch (System.ComponentModel.Win32Exception err)
+            {
+                MessageBox.Show("Aplicação não encontrada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+}
 
         private void powerPointToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("ppsx");
-        }
+            try { 
+                Process.Start("ppsx");
+            }catch (System.ComponentModel.Win32Exception err)
+            {
+                MessageBox.Show("Aplicação não encontrada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+}
 
         private void blocoDeNotasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("notepad");
-        }
+            try { 
+                Process.Start("notepad");
+            }catch (System.ComponentModel.Win32Exception err)
+            {
+                MessageBox.Show("Aplicação não encontrada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+}
 
         private void calculadoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("calc");
-        }
+            try { 
+                Process.Start("calc");
+            }catch (System.ComponentModel.Win32Exception err)
+            {
+                MessageBox.Show("Aplicação não encontrada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+}
 
         private void ptCoFunc_MouseEnter_1(object sender, EventArgs e)
         {
@@ -236,6 +272,7 @@ namespace CRUD
             Consultar_alunos alunos = new Consultar_alunos();
             alunos.Usuario = usuario;
             alunos.Privi = privi;
+            alunos.Senha = senha;
             this.Hide();
             alunos.ShowDialog();
         }
@@ -244,6 +281,7 @@ namespace CRUD
         {
             Cadastro_Func funcionario = new Cadastro_Func();
             funcionario.Usuario = usuario;
+            funcionario.Senha = senha;
             this.Hide();
             funcionario.ShowDialog();
         }
@@ -252,6 +290,8 @@ namespace CRUD
         {
             Consulta_func consulta = new Consulta_func();
             consulta.Usu = usuario;
+            consulta.Senha = senha;
+            consulta.Privi = privi;
             this.Hide();
             consulta.ShowDialog();
         }

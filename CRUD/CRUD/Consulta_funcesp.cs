@@ -20,8 +20,10 @@ namespace CRUD
         private string destino;
         private DialogResult resp;
         private string usuario;
+        private string senha;
         private string antigo;
         private string[] dados = new string[4];
+        private string[] funcionarios = new string[3];
         private string local;
         public Consulta_funcesp()
         {
@@ -30,7 +32,9 @@ namespace CRUD
 
         private void Consulta_funcesp_Load(object sender, EventArgs e)
         {
-            
+            stripHorario.Text = DateTime.Now.ToString();
+            tmrHora.Enabled = true;
+            ptFoto.Image = Properties.Resources.Design_sem_nome;
             BD bd = new BD();
             bd.CargoCB();
             while (bd.Tabela.Read())
@@ -166,6 +170,15 @@ namespace CRUD
                 listAluno.Items.Add(lista);
             }
             bd.Tabela.Close();
+            bd.ListaFuncionarios();
+            while (bd.Tabela.Read())
+            {
+                funcionarios[0] = bd.Tabela["nome_func"].ToString();
+                funcionarios[1] = bd.Tabela["cpf_func"].ToString();
+                funcionarios[2] = DateTime.Parse(bd.Tabela["admi_func"].ToString()).ToString("yyyy/MM/d");
+                ListViewItem funcs = new ListViewItem(funcionarios);
+                listFunc.Items.Add(funcs);
+            }
             bd.Conexao.Close();
         }
         public string Cpf
@@ -375,6 +388,7 @@ namespace CRUD
         {
             Consulta_func funcionario = new Consulta_func();
             funcionario.Usu = usuario;
+            funcionario.Senha = senha;
             this.Hide();
             funcionario.ShowDialog();
         }
@@ -401,15 +415,22 @@ namespace CRUD
                 bd.IdLogin = id_consulta;
                 bd.DeletarFunc();
 
-                if (bd.Resp == 0)
+                if (bd.Resp > 0)
                 {
                     MessageBox.Show("Funcionario Deletado com Sucesso!!!", "Funcionario Deletado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MessageBox.Show("Dados da conta deletado!!!", "Conta Deletado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Consulta_func funcionario = new Consulta_func();
                     funcionario.Usu = usuario;
-                    if (File.Exists(local))
+                    try
                     {
-                        File.Delete(local);
+                        if (File.Exists(local))
+                        {
+                            ptFoto.Image.Dispose();
+                            File.Delete(local);
+                        }
+                    }catch (System.IO.IOException err)
+                    {
+                        MessageBox.Show("Não é possivel deletar imagem, pois esta sendo usada", "Imagem Usada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     this.Hide();
                     funcionario.ShowDialog();
@@ -464,6 +485,15 @@ namespace CRUD
         private void pcBImg_MouseLeave(object sender, EventArgs e)
         {
             pcBImg.Image = Properties.Resources.CameraIcon2;
+        }
+        public string Senha
+        {
+            set { this.senha = value; }
+        }
+
+        private void tmrHora_Tick(object sender, EventArgs e)
+        {
+            stripHorario.Text = DateTime.Now.ToString();
         }
     }
 }

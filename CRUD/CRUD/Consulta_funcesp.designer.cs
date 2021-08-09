@@ -29,6 +29,8 @@ namespace CRUD
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Consulta_funcesp));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.checkSim = new System.Windows.Forms.CheckBox();
@@ -100,12 +102,13 @@ namespace CRUD
             this.matri = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cpf = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gpFunc = new System.Windows.Forms.GroupBox();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.idfunc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listFunc = new System.Windows.Forms.ListView();
             this.nomefunc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dep = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cargo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.admi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.func_cpf = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.admissao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tmrHora = new System.Windows.Forms.Timer(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.stripHorario = new System.Windows.Forms.ToolStripLabel();
             this.groupBox1.SuspendLayout();
             this.gpConta.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -116,6 +119,7 @@ namespace CRUD
             ((System.ComponentModel.ISupportInitialize)(this.ptFoto)).BeginInit();
             this.gpAlunos.SuspendLayout();
             this.gpFunc.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -138,7 +142,7 @@ namespace CRUD
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(779, 604);
+            this.groupBox1.Size = new System.Drawing.Size(779, 589);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Consultar";
@@ -146,7 +150,7 @@ namespace CRUD
             // button3
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button3.Location = new System.Drawing.Point(410, 559);
+            this.button3.Location = new System.Drawing.Point(410, 544);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(97, 30);
             this.button3.TabIndex = 24;
@@ -190,7 +194,7 @@ namespace CRUD
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(713, 559);
+            this.button2.Location = new System.Drawing.Point(713, 544);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(60, 30);
             this.button2.TabIndex = 27;
@@ -201,7 +205,7 @@ namespace CRUD
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button1.Location = new System.Drawing.Point(281, 559);
+            this.button1.Location = new System.Drawing.Point(281, 544);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 30);
             this.button1.TabIndex = 23;
@@ -869,7 +873,7 @@ namespace CRUD
             // gpFunc
             // 
             this.gpFunc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gpFunc.Controls.Add(this.listView2);
+            this.gpFunc.Controls.Add(this.listFunc);
             this.gpFunc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.gpFunc.Location = new System.Drawing.Point(797, 307);
             this.gpFunc.Name = "gpFunc";
@@ -878,57 +882,70 @@ namespace CRUD
             this.gpFunc.TabStop = false;
             this.gpFunc.Text = "Funcionarios Cadastrados";
             // 
-            // listView2
+            // listFunc
             // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.idfunc,
+            this.listFunc.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.nomefunc,
-            this.dep,
-            this.cargo,
-            this.admi});
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(8, 25);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(376, 263);
-            this.listView2.TabIndex = 1;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            // 
-            // idfunc
-            // 
-            this.idfunc.Text = "ID";
-            this.idfunc.Width = 38;
+            this.func_cpf,
+            this.admissao});
+            this.listFunc.HideSelection = false;
+            this.listFunc.Location = new System.Drawing.Point(8, 25);
+            this.listFunc.Name = "listFunc";
+            this.listFunc.Size = new System.Drawing.Size(376, 263);
+            this.listFunc.TabIndex = 1;
+            this.listFunc.UseCompatibleStateImageBehavior = false;
+            this.listFunc.View = System.Windows.Forms.View.Details;
             // 
             // nomefunc
             // 
             this.nomefunc.Text = "Nome";
-            this.nomefunc.Width = 125;
+            this.nomefunc.Width = 285;
             // 
-            // dep
+            // func_cpf
             // 
-            this.dep.Text = "Departamento";
-            this.dep.Width = 88;
+            this.func_cpf.Text = "CPF";
+            this.func_cpf.Width = 169;
             // 
-            // cargo
+            // admissao
             // 
-            this.cargo.Text = "Cargo";
-            this.cargo.Width = 61;
+            this.admissao.Text = "Data de Admissão";
+            this.admissao.Width = 145;
             // 
-            // admi
+            // tmrHora
             // 
-            this.admi.Text = "Data Admissão";
-            this.admi.Width = 67;
+            this.tmrHora.Interval = 1000;
+            this.tmrHora.Tick += new System.EventHandler(this.tmrHora_Tick);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stripHorario});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 603);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1199, 25);
+            this.toolStrip1.TabIndex = 28;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // stripHorario
+            // 
+            this.stripHorario.Margin = new System.Windows.Forms.Padding(1040, 1, 0, 2);
+            this.stripHorario.Name = "stripHorario";
+            this.stripHorario.Size = new System.Drawing.Size(47, 22);
+            this.stripHorario.Text = "Horario";
             // 
             // Consulta_funcesp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1199, 628);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.gpFunc);
             this.Controls.Add(this.gpAlunos);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Consulta_funcesp";
-            this.Text = "Consulta_funcesp";
+            this.Text = "SpaceTech";
             this.Load += new System.EventHandler(this.Consulta_funcesp_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -946,7 +963,10 @@ namespace CRUD
             ((System.ComponentModel.ISupportInitialize)(this.ptFoto)).EndInit();
             this.gpAlunos.ResumeLayout(false);
             this.gpFunc.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1022,12 +1042,13 @@ namespace CRUD
         private System.Windows.Forms.ColumnHeader nomealuno;
         private System.Windows.Forms.ColumnHeader matri;
         private System.Windows.Forms.GroupBox gpFunc;
-        private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.ColumnHeader idfunc;
+        private System.Windows.Forms.ListView listFunc;
         private System.Windows.Forms.ColumnHeader nomefunc;
-        private System.Windows.Forms.ColumnHeader dep;
-        private System.Windows.Forms.ColumnHeader cargo;
-        private System.Windows.Forms.ColumnHeader admi;
         private System.Windows.Forms.ColumnHeader cpf;
+        private System.Windows.Forms.ColumnHeader func_cpf;
+        private System.Windows.Forms.ColumnHeader admissao;
+        private System.Windows.Forms.Timer tmrHora;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel stripHorario;
     }
 }

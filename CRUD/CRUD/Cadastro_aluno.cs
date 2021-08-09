@@ -35,7 +35,10 @@ namespace CRUD
 
         private void Cadastro_aluno_Load(object sender, EventArgs e)
         {
+            stripHorario.Text = DateTime.Now.ToString();
+            tmrHora.Enabled = true;
             rdF.Checked = true;
+            ptFoto.Image = Properties.Resources.Design_sem_nome;
             BD bd = new BD();
             bd.Estado();
             while (bd.Tabela.Read())
@@ -310,6 +313,12 @@ namespace CRUD
         private void pcBImg_MouseLeave(object sender, EventArgs e)
         {
             pcBImg.Image = Properties.Resources.CameraIcon2;
+        }
+
+
+        private void tmrHora_Tick_1(object sender, EventArgs e)
+        {
+            stripHorario.Text = DateTime.Now.ToString();
         }
     }
 }

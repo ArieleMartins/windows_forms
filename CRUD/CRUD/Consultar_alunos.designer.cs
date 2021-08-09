@@ -29,6 +29,7 @@ namespace CRUD
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Consultar_alunos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.Lista1 = new System.Windows.Forms.ListView();
@@ -37,20 +38,21 @@ namespace CRUD
             this.Turma = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Curso = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CPF = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.txtCPF = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btSair = new System.Windows.Forms.Button();
+            this.maskCPF = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.groupBox1.Controls.Add(this.maskCPF);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.Lista1);
-            this.groupBox1.Controls.Add(this.txtCPF);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtID);
@@ -65,7 +67,7 @@ namespace CRUD
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.button2.Location = new System.Drawing.Point(507, 31);
+            this.button2.Location = new System.Drawing.Point(507, 37);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(81, 23);
             this.button2.TabIndex = 7;
@@ -75,6 +77,7 @@ namespace CRUD
             // 
             // Lista1
             // 
+            this.Lista1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.Lista1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
             this.Nome,
@@ -118,17 +121,10 @@ namespace CRUD
             // 
             this.CPF.Text = "CPF";
             // 
-            // txtCPF
-            // 
-            this.txtCPF.Location = new System.Drawing.Point(390, 31);
-            this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(100, 26);
-            this.txtCPF.TabIndex = 3;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(337, 34);
+            this.label2.Location = new System.Drawing.Point(315, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 20);
             this.label2.TabIndex = 2;
@@ -153,6 +149,7 @@ namespace CRUD
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.button1.Location = new System.Drawing.Point(303, 449);
             this.button1.Name = "button1";
@@ -164,6 +161,7 @@ namespace CRUD
             // 
             // btSair
             // 
+            this.btSair.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.btSair.Location = new System.Drawing.Point(634, 449);
             this.btSair.Name = "btSair";
@@ -173,6 +171,14 @@ namespace CRUD
             this.btSair.UseVisualStyleBackColor = true;
             this.btSair.Click += new System.EventHandler(this.btSair_Click);
             // 
+            // maskCPF
+            // 
+            this.maskCPF.Location = new System.Drawing.Point(368, 34);
+            this.maskCPF.Mask = "000.000.000-00";
+            this.maskCPF.Name = "maskCPF";
+            this.maskCPF.Size = new System.Drawing.Size(133, 26);
+            this.maskCPF.TabIndex = 9;
+            // 
             // Consultar_alunos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,8 +187,9 @@ namespace CRUD
             this.Controls.Add(this.btSair);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Consultar_alunos";
-            this.Text = "Consultar_alunos";
+            this.Text = "SpaceTech";
             this.Load += new System.EventHandler(this.Consultar_alunos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -200,11 +207,11 @@ namespace CRUD
         private System.Windows.Forms.ColumnHeader Turma;
         private System.Windows.Forms.ColumnHeader Curso;
         private System.Windows.Forms.ColumnHeader CPF;
-        private System.Windows.Forms.TextBox txtCPF;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btSair;
+        private System.Windows.Forms.MaskedTextBox maskCPF;
     }
 }

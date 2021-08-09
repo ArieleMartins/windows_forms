@@ -29,6 +29,8 @@ namespace CRUD
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro_aluno));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btCadastro = new System.Windows.Forms.Button();
@@ -79,6 +81,9 @@ namespace CRUD
             this.label1 = new System.Windows.Forms.Label();
             this.pcBImg = new System.Windows.Forms.PictureBox();
             this.ptFoto = new System.Windows.Forms.PictureBox();
+            this.tmrHora = new System.Windows.Forms.Timer(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.stripHorario = new System.Windows.Forms.ToolStripLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -86,6 +91,7 @@ namespace CRUD
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcBImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptFoto)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -102,7 +108,7 @@ namespace CRUD
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.groupBox1.Location = new System.Drawing.Point(12, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 409);
+            this.groupBox1.Size = new System.Drawing.Size(776, 386);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastro";
@@ -110,7 +116,7 @@ namespace CRUD
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(710, 364);
+            this.button2.Location = new System.Drawing.Point(710, 350);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(60, 30);
             this.button2.TabIndex = 21;
@@ -121,7 +127,7 @@ namespace CRUD
             // btCadastro
             // 
             this.btCadastro.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btCadastro.Location = new System.Drawing.Point(337, 372);
+            this.btCadastro.Location = new System.Drawing.Point(329, 350);
             this.btCadastro.Name = "btCadastro";
             this.btCadastro.Size = new System.Drawing.Size(97, 30);
             this.btCadastro.TabIndex = 20;
@@ -481,7 +487,7 @@ namespace CRUD
             this.maskRG.BackColor = System.Drawing.Color.LavenderBlush;
             this.maskRG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.maskRG.Location = new System.Drawing.Point(277, 75);
-            this.maskRG.Mask = "00,000,000-C";
+            this.maskRG.Mask = "00.000.000-C";
             this.maskRG.Name = "maskRG";
             this.maskRG.Size = new System.Drawing.Size(118, 21);
             this.maskRG.TabIndex = 4;
@@ -491,7 +497,7 @@ namespace CRUD
             this.maskCPF.BackColor = System.Drawing.Color.LavenderBlush;
             this.maskCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.maskCPF.Location = new System.Drawing.Point(144, 74);
-            this.maskCPF.Mask = "000,000,000-00";
+            this.maskCPF.Mask = "000.000.000-00";
             this.maskCPF.Name = "maskCPF";
             this.maskCPF.Size = new System.Drawing.Size(98, 21);
             this.maskCPF.TabIndex = 3;
@@ -637,14 +643,39 @@ namespace CRUD
             this.ptFoto.TabIndex = 0;
             this.ptFoto.TabStop = false;
             // 
+            // tmrHora
+            // 
+            this.tmrHora.Interval = 1000;
+            this.tmrHora.Tick += new System.EventHandler(this.tmrHora_Tick_1);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stripHorario});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 394);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.TabIndex = 22;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // stripHorario
+            // 
+            this.stripHorario.Margin = new System.Windows.Forms.Padding(620, 1, 0, 2);
+            this.stripHorario.Name = "stripHorario";
+            this.stripHorario.Size = new System.Drawing.Size(47, 22);
+            this.stripHorario.Text = "Horario";
+            // 
             // Cadastro_aluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 419);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Cadastro_aluno";
-            this.Text = "Cadastro_aluno";
+            this.Text = "SpaceTech";
             this.Load += new System.EventHandler(this.Cadastro_aluno_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
@@ -657,7 +688,10 @@ namespace CRUD
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcBImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptFoto)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -713,5 +747,8 @@ namespace CRUD
         private System.Windows.Forms.ComboBox cbHorario;
         private System.Windows.Forms.TextBox txtResponsavel;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Timer tmrHora;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel stripHorario;
     }
 }

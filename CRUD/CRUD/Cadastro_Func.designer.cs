@@ -29,48 +29,10 @@ namespace CRUD
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro_Func));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkSim = new System.Windows.Forms.CheckBox();
-            this.rbUsu = new System.Windows.Forms.RadioButton();
-            this.rbAdmin = new System.Windows.Forms.RadioButton();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.gpLogin = new System.Windows.Forms.GroupBox();
-            this.txtSenha = new System.Windows.Forms.TextBox();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txtSal = new System.Windows.Forms.TextBox();
-            this.maskAdmi = new System.Windows.Forms.MaskedTextBox();
-            this.cbDep = new System.Windows.Forms.ComboBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.cbCar = new System.Windows.Forms.ComboBox();
-            this.txtFunc = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtBairro = new System.Windows.Forms.TextBox();
-            this.cbEst = new System.Windows.Forms.ComboBox();
-            this.txtNum = new System.Windows.Forms.TextBox();
-            this.txtCidade = new System.Windows.Forms.TextBox();
-            this.txtRua = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.maskCel = new System.Windows.Forms.MaskedTextBox();
-            this.maskTel = new System.Windows.Forms.MaskedTextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.ptFoto = new System.Windows.Forms.PictureBox();
+            this.pcBImg = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label25 = new System.Windows.Forms.Label();
             this.rdM = new System.Windows.Forms.RadioButton();
@@ -91,464 +53,83 @@ namespace CRUD
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pcBImg = new System.Windows.Forms.PictureBox();
-            this.ptFoto = new System.Windows.Forms.PictureBox();
-            this.groupBox1.SuspendLayout();
-            this.gpLogin.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcBImg)).BeginInit();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.maskCel = new System.Windows.Forms.MaskedTextBox();
+            this.maskTel = new System.Windows.Forms.MaskedTextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtBairro = new System.Windows.Forms.TextBox();
+            this.cbEst = new System.Windows.Forms.ComboBox();
+            this.txtNum = new System.Windows.Forms.TextBox();
+            this.txtCidade = new System.Windows.Forms.TextBox();
+            this.txtRua = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtSal = new System.Windows.Forms.TextBox();
+            this.maskAdmi = new System.Windows.Forms.MaskedTextBox();
+            this.cbDep = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.cbCar = new System.Windows.Forms.ComboBox();
+            this.txtFunc = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.gpLogin = new System.Windows.Forms.GroupBox();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.rbAdmin = new System.Windows.Forms.RadioButton();
+            this.rbUsu = new System.Windows.Forms.RadioButton();
+            this.checkSim = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tmrHora = new System.Windows.Forms.Timer(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.stripHorario = new System.Windows.Forms.ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)(this.ptFoto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcBImg)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.gpLogin.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.groupBox1.Controls.Add(this.checkSim);
-            this.groupBox1.Controls.Add(this.rbUsu);
-            this.groupBox1.Controls.Add(this.rbAdmin);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.gpLogin);
-            this.groupBox1.Controls.Add(this.groupBox5);
-            this.groupBox1.Controls.Add(this.groupBox4);
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.pcBImg);
-            this.groupBox1.Controls.Add(this.ptFoto);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 599);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Cadastro Funcionario";
-            // 
-            // checkSim
-            // 
-            this.checkSim.AutoSize = true;
-            this.checkSim.Location = new System.Drawing.Point(15, 374);
-            this.checkSim.Name = "checkSim";
-            this.checkSim.Size = new System.Drawing.Size(57, 24);
-            this.checkSim.TabIndex = 22;
-            this.checkSim.Text = "Sim";
-            this.checkSim.UseVisualStyleBackColor = true;
-            this.checkSim.CheckedChanged += new System.EventHandler(this.checkSim_CheckedChanged);
-            // 
-            // rbUsu
-            // 
-            this.rbUsu.AutoSize = true;
-            this.rbUsu.Location = new System.Drawing.Point(269, 416);
-            this.rbUsu.Name = "rbUsu";
-            this.rbUsu.Size = new System.Drawing.Size(88, 24);
-            this.rbUsu.TabIndex = 25;
-            this.rbUsu.TabStop = true;
-            this.rbUsu.Text = "Clientes";
-            this.rbUsu.UseVisualStyleBackColor = true;
-            // 
-            // rbAdmin
-            // 
-            this.rbAdmin.AutoSize = true;
-            this.rbAdmin.Location = new System.Drawing.Point(15, 416);
-            this.rbAdmin.Name = "rbAdmin";
-            this.rbAdmin.Size = new System.Drawing.Size(203, 24);
-            this.rbAdmin.TabIndex = 26;
-            this.rbAdmin.TabStop = true;
-            this.rbAdmin.Text = "Clientes e Funcionarios";
-            this.rbAdmin.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(710, 554);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(60, 30);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "Sair";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button1.Location = new System.Drawing.Point(353, 554);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 30);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Cadastrar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(11, 351);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(355, 20);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Deseja criar uma conta para este funcionario?";
-            // 
-            // gpLogin
-            // 
-            this.gpLogin.Controls.Add(this.txtSenha);
-            this.gpLogin.Controls.Add(this.txtUsuario);
-            this.gpLogin.Controls.Add(this.label24);
-            this.gpLogin.Controls.Add(this.label23);
-            this.gpLogin.Location = new System.Drawing.Point(15, 463);
-            this.gpLogin.Name = "gpLogin";
-            this.gpLogin.Size = new System.Drawing.Size(200, 100);
-            this.gpLogin.TabIndex = 20;
-            this.gpLogin.TabStop = false;
-            this.gpLogin.Text = "Conta";
-            // 
-            // txtSenha
-            // 
-            this.txtSenha.BackColor = System.Drawing.Color.LavenderBlush;
-            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.txtSenha.Location = new System.Drawing.Point(73, 61);
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.PasswordChar = '*';
-            this.txtSenha.Size = new System.Drawing.Size(109, 21);
-            this.txtSenha.TabIndex = 28;
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.BackColor = System.Drawing.Color.LavenderBlush;
-            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.txtUsuario.Location = new System.Drawing.Point(73, 31);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(109, 21);
-            this.txtUsuario.TabIndex = 27;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label24.Location = new System.Drawing.Point(14, 61);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(53, 17);
-            this.label24.TabIndex = 19;
-            this.label24.Text = "Senha:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label23.Location = new System.Drawing.Point(6, 31);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(61, 17);
-            this.label23.TabIndex = 18;
-            this.label23.Text = "Usuário:";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.txtSal);
-            this.groupBox5.Controls.Add(this.maskAdmi);
-            this.groupBox5.Controls.Add(this.cbDep);
-            this.groupBox5.Controls.Add(this.label22);
-            this.groupBox5.Controls.Add(this.cbCar);
-            this.groupBox5.Controls.Add(this.txtFunc);
-            this.groupBox5.Controls.Add(this.label9);
-            this.groupBox5.Controls.Add(this.label12);
-            this.groupBox5.Controls.Add(this.label20);
-            this.groupBox5.Controls.Add(this.label21);
-            this.groupBox5.Location = new System.Drawing.Point(269, 184);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(501, 155);
-            this.groupBox5.TabIndex = 18;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Profissão";
-            // 
-            // txtSal
-            // 
-            this.txtSal.BackColor = System.Drawing.Color.LavenderBlush;
-            this.txtSal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.txtSal.Location = new System.Drawing.Point(368, 46);
-            this.txtSal.Name = "txtSal";
-            this.txtSal.Size = new System.Drawing.Size(114, 21);
-            this.txtSal.TabIndex = 19;
-            // 
-            // maskAdmi
-            // 
-            this.maskAdmi.BackColor = System.Drawing.Color.LavenderBlush;
-            this.maskAdmi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.maskAdmi.Location = new System.Drawing.Point(140, 49);
-            this.maskAdmi.Mask = "0000/00/00";
-            this.maskAdmi.Name = "maskAdmi";
-            this.maskAdmi.Size = new System.Drawing.Size(114, 21);
-            this.maskAdmi.TabIndex = 20;
-            this.maskAdmi.ValidatingType = typeof(System.DateTime);
-            // 
-            // cbDep
-            // 
-            this.cbDep.BackColor = System.Drawing.Color.LavenderBlush;
-            this.cbDep.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.cbDep.FormattingEnabled = true;
-            this.cbDep.Location = new System.Drawing.Point(368, 20);
-            this.cbDep.Name = "cbDep";
-            this.cbDep.Size = new System.Drawing.Size(114, 23);
-            this.cbDep.TabIndex = 18;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label22.Location = new System.Drawing.Point(260, 24);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(102, 17);
-            this.label22.TabIndex = 18;
-            this.label22.Text = "Departamento:";
-            // 
-            // cbCar
-            // 
-            this.cbCar.BackColor = System.Drawing.Color.LavenderBlush;
-            this.cbCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.cbCar.FormattingEnabled = true;
-            this.cbCar.Location = new System.Drawing.Point(140, 20);
-            this.cbCar.Name = "cbCar";
-            this.cbCar.Size = new System.Drawing.Size(114, 23);
-            this.cbCar.TabIndex = 17;
-            // 
-            // txtFunc
-            // 
-            this.txtFunc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.txtFunc.Location = new System.Drawing.Point(140, 88);
-            this.txtFunc.Multiline = true;
-            this.txtFunc.Name = "txtFunc";
-            this.txtFunc.Size = new System.Drawing.Size(342, 54);
-            this.txtFunc.TabIndex = 21;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label9.Location = new System.Drawing.Point(77, 88);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 17);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "Função:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label12.Location = new System.Drawing.Point(312, 50);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(56, 17);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "Salário:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label20.Location = new System.Drawing.Point(81, 22);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(50, 17);
-            this.label20.TabIndex = 3;
-            this.label20.Text = "Cargo:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label21.Location = new System.Drawing.Point(6, 50);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(127, 17);
-            this.label21.TabIndex = 2;
-            this.label21.Text = "Data de Admissão:";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.txtBairro);
-            this.groupBox4.Controls.Add(this.cbEst);
-            this.groupBox4.Controls.Add(this.txtNum);
-            this.groupBox4.Controls.Add(this.txtCidade);
-            this.groupBox4.Controls.Add(this.txtRua);
-            this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.label17);
-            this.groupBox4.Controls.Add(this.label18);
-            this.groupBox4.Controls.Add(this.label19);
-            this.groupBox4.Location = new System.Drawing.Point(15, 184);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(240, 155);
-            this.groupBox4.TabIndex = 17;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Endereço";
-            // 
-            // txtBairro
-            // 
-            this.txtBairro.BackColor = System.Drawing.Color.LavenderBlush;
-            this.txtBairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.txtBairro.Location = new System.Drawing.Point(84, 70);
-            this.txtBairro.Name = "txtBairro";
-            this.txtBairro.Size = new System.Drawing.Size(147, 21);
-            this.txtBairro.TabIndex = 14;
-            // 
-            // cbEst
-            // 
-            this.cbEst.BackColor = System.Drawing.Color.LavenderBlush;
-            this.cbEst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.cbEst.FormattingEnabled = true;
-            this.cbEst.Location = new System.Drawing.Point(84, 119);
-            this.cbEst.Name = "cbEst";
-            this.cbEst.Size = new System.Drawing.Size(147, 23);
-            this.cbEst.TabIndex = 16;
-            // 
-            // txtNum
-            // 
-            this.txtNum.BackColor = System.Drawing.Color.LavenderBlush;
-            this.txtNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.txtNum.Location = new System.Drawing.Point(84, 92);
-            this.txtNum.Name = "txtNum";
-            this.txtNum.Size = new System.Drawing.Size(70, 21);
-            this.txtNum.TabIndex = 15;
-            // 
-            // txtCidade
-            // 
-            this.txtCidade.BackColor = System.Drawing.Color.LavenderBlush;
-            this.txtCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.txtCidade.Location = new System.Drawing.Point(84, 46);
-            this.txtCidade.Name = "txtCidade";
-            this.txtCidade.Size = new System.Drawing.Size(147, 21);
-            this.txtCidade.TabIndex = 13;
-            // 
-            // txtRua
-            // 
-            this.txtRua.BackColor = System.Drawing.Color.LavenderBlush;
-            this.txtRua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.txtRua.Location = new System.Drawing.Point(84, 22);
-            this.txtRua.Name = "txtRua";
-            this.txtRua.Size = new System.Drawing.Size(147, 21);
-            this.txtRua.TabIndex = 12;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label11.Location = new System.Drawing.Point(31, 121);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 17);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Estado:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label13.Location = new System.Drawing.Point(25, 94);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(62, 17);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "Número:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label17.Location = new System.Drawing.Point(37, 70);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(50, 17);
-            this.label17.TabIndex = 4;
-            this.label17.Text = "Bairro:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label18.Location = new System.Drawing.Point(49, 22);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(38, 17);
-            this.label18.TabIndex = 3;
-            this.label18.Text = "Rua:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label19.Location = new System.Drawing.Point(31, 46);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(56, 17);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "Cidade:";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.maskCel);
-            this.groupBox3.Controls.Add(this.maskTel);
-            this.groupBox3.Controls.Add(this.txtEmail);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Location = new System.Drawing.Point(587, 28);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(183, 107);
-            this.groupBox3.TabIndex = 17;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Contatos";
-            // 
-            // maskCel
-            // 
-            this.maskCel.BackColor = System.Drawing.Color.LavenderBlush;
-            this.maskCel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.maskCel.Location = new System.Drawing.Point(75, 73);
-            this.maskCel.Mask = "(99) 00000-0000";
-            this.maskCel.Name = "maskCel";
-            this.maskCel.Size = new System.Drawing.Size(98, 21);
-            this.maskCel.TabIndex = 10;
-            // 
-            // maskTel
-            // 
-            this.maskTel.BackColor = System.Drawing.Color.LavenderBlush;
-            this.maskTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.maskTel.Location = new System.Drawing.Point(75, 48);
-            this.maskTel.Mask = "(99) 0000-0000";
-            this.maskTel.Name = "maskTel";
-            this.maskTel.Size = new System.Drawing.Size(98, 21);
-            this.maskTel.TabIndex = 9;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.BackColor = System.Drawing.Color.LavenderBlush;
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.txtEmail.Location = new System.Drawing.Point(75, 24);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(98, 21);
-            this.txtEmail.TabIndex = 8;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label14.Location = new System.Drawing.Point(22, 76);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(56, 17);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "Celular:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label15.Location = new System.Drawing.Point(32, 24);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(46, 17);
-            this.label15.TabIndex = 3;
-            this.label15.Text = "Email:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label16.Location = new System.Drawing.Point(10, 50);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(68, 17);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "Telefone:";
+            // ptFoto
+            // 
+            this.ptFoto.Location = new System.Drawing.Point(15, 25);
+            this.ptFoto.Name = "ptFoto";
+            this.ptFoto.Size = new System.Drawing.Size(156, 153);
+            this.ptFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptFoto.TabIndex = 0;
+            this.ptFoto.TabStop = false;
+            // 
+            // pcBImg
+            // 
+            this.pcBImg.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pcBImg.Image = global::CRUD.Properties.Resources.CameraIcon2;
+            this.pcBImg.Location = new System.Drawing.Point(139, 148);
+            this.pcBImg.Name = "pcBImg";
+            this.pcBImg.Size = new System.Drawing.Size(32, 30);
+            this.pcBImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcBImg.TabIndex = 1;
+            this.pcBImg.TabStop = false;
+            this.pcBImg.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pcBImg.MouseEnter += new System.EventHandler(this.pcBImg_MouseEnter);
+            this.pcBImg.MouseLeave += new System.EventHandler(this.pcBImg_MouseLeave);
             // 
             // groupBox2
             // 
@@ -617,7 +198,7 @@ namespace CRUD
             this.maskRG.BackColor = System.Drawing.Color.LavenderBlush;
             this.maskRG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.maskRG.Location = new System.Drawing.Point(297, 75);
-            this.maskRG.Mask = "00,000,000-C";
+            this.maskRG.Mask = "00.000.000-C";
             this.maskRG.Name = "maskRG";
             this.maskRG.Size = new System.Drawing.Size(98, 21);
             this.maskRG.TabIndex = 4;
@@ -627,7 +208,7 @@ namespace CRUD
             this.maskCPF.BackColor = System.Drawing.Color.LavenderBlush;
             this.maskCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.maskCPF.Location = new System.Drawing.Point(144, 74);
-            this.maskCPF.Mask = "000,000,000-00";
+            this.maskCPF.Mask = "000.000.000-00";
             this.maskCPF.Name = "maskCPF";
             this.maskCPF.Size = new System.Drawing.Size(98, 21);
             this.maskCPF.TabIndex = 3;
@@ -769,70 +350,520 @@ namespace CRUD
             this.label1.TabIndex = 2;
             this.label1.Text = "Data Nascimento:";
             // 
-            // pcBImg
+            // groupBox3
             // 
-            this.pcBImg.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pcBImg.Image = global::CRUD.Properties.Resources.CameraIcon2;
-            this.pcBImg.Location = new System.Drawing.Point(139, 148);
-            this.pcBImg.Name = "pcBImg";
-            this.pcBImg.Size = new System.Drawing.Size(32, 30);
-            this.pcBImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcBImg.TabIndex = 1;
-            this.pcBImg.TabStop = false;
-            this.pcBImg.Click += new System.EventHandler(this.pictureBox2_Click);
-            this.pcBImg.MouseEnter += new System.EventHandler(this.pcBImg_MouseEnter);
-            this.pcBImg.MouseLeave += new System.EventHandler(this.pcBImg_MouseLeave);
+            this.groupBox3.Controls.Add(this.maskCel);
+            this.groupBox3.Controls.Add(this.maskTel);
+            this.groupBox3.Controls.Add(this.txtEmail);
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Controls.Add(this.label15);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Location = new System.Drawing.Point(587, 28);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(183, 107);
+            this.groupBox3.TabIndex = 17;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Contatos";
             // 
-            // ptFoto
+            // maskCel
             // 
-            this.ptFoto.Location = new System.Drawing.Point(15, 25);
-            this.ptFoto.Name = "ptFoto";
-            this.ptFoto.Size = new System.Drawing.Size(156, 153);
-            this.ptFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptFoto.TabIndex = 0;
-            this.ptFoto.TabStop = false;
+            this.maskCel.BackColor = System.Drawing.Color.LavenderBlush;
+            this.maskCel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.maskCel.Location = new System.Drawing.Point(75, 73);
+            this.maskCel.Mask = "(99) 00000-0000";
+            this.maskCel.Name = "maskCel";
+            this.maskCel.Size = new System.Drawing.Size(98, 21);
+            this.maskCel.TabIndex = 10;
+            // 
+            // maskTel
+            // 
+            this.maskTel.BackColor = System.Drawing.Color.LavenderBlush;
+            this.maskTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.maskTel.Location = new System.Drawing.Point(75, 48);
+            this.maskTel.Mask = "(99) 0000-0000";
+            this.maskTel.Name = "maskTel";
+            this.maskTel.Size = new System.Drawing.Size(98, 21);
+            this.maskTel.TabIndex = 9;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BackColor = System.Drawing.Color.LavenderBlush;
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.txtEmail.Location = new System.Drawing.Point(75, 24);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(98, 21);
+            this.txtEmail.TabIndex = 8;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label14.Location = new System.Drawing.Point(22, 76);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(56, 17);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "Celular:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label15.Location = new System.Drawing.Point(32, 24);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(46, 17);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Email:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label16.Location = new System.Drawing.Point(10, 50);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(68, 17);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Telefone:";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.txtBairro);
+            this.groupBox4.Controls.Add(this.cbEst);
+            this.groupBox4.Controls.Add(this.txtNum);
+            this.groupBox4.Controls.Add(this.txtCidade);
+            this.groupBox4.Controls.Add(this.txtRua);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.label18);
+            this.groupBox4.Controls.Add(this.label19);
+            this.groupBox4.Location = new System.Drawing.Point(15, 184);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(240, 155);
+            this.groupBox4.TabIndex = 17;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Endereço";
+            // 
+            // txtBairro
+            // 
+            this.txtBairro.BackColor = System.Drawing.Color.LavenderBlush;
+            this.txtBairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.txtBairro.Location = new System.Drawing.Point(84, 70);
+            this.txtBairro.Name = "txtBairro";
+            this.txtBairro.Size = new System.Drawing.Size(147, 21);
+            this.txtBairro.TabIndex = 14;
+            // 
+            // cbEst
+            // 
+            this.cbEst.BackColor = System.Drawing.Color.LavenderBlush;
+            this.cbEst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.cbEst.FormattingEnabled = true;
+            this.cbEst.Location = new System.Drawing.Point(84, 119);
+            this.cbEst.Name = "cbEst";
+            this.cbEst.Size = new System.Drawing.Size(147, 23);
+            this.cbEst.TabIndex = 16;
+            // 
+            // txtNum
+            // 
+            this.txtNum.BackColor = System.Drawing.Color.LavenderBlush;
+            this.txtNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.txtNum.Location = new System.Drawing.Point(84, 92);
+            this.txtNum.Name = "txtNum";
+            this.txtNum.Size = new System.Drawing.Size(70, 21);
+            this.txtNum.TabIndex = 15;
+            // 
+            // txtCidade
+            // 
+            this.txtCidade.BackColor = System.Drawing.Color.LavenderBlush;
+            this.txtCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.txtCidade.Location = new System.Drawing.Point(84, 46);
+            this.txtCidade.Name = "txtCidade";
+            this.txtCidade.Size = new System.Drawing.Size(147, 21);
+            this.txtCidade.TabIndex = 13;
+            // 
+            // txtRua
+            // 
+            this.txtRua.BackColor = System.Drawing.Color.LavenderBlush;
+            this.txtRua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.txtRua.Location = new System.Drawing.Point(84, 22);
+            this.txtRua.Name = "txtRua";
+            this.txtRua.Size = new System.Drawing.Size(147, 21);
+            this.txtRua.TabIndex = 12;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label11.Location = new System.Drawing.Point(31, 121);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 17);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Estado:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label13.Location = new System.Drawing.Point(25, 94);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(62, 17);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "Número:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label17.Location = new System.Drawing.Point(37, 70);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(50, 17);
+            this.label17.TabIndex = 4;
+            this.label17.Text = "Bairro:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label18.Location = new System.Drawing.Point(49, 22);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(38, 17);
+            this.label18.TabIndex = 3;
+            this.label18.Text = "Rua:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label19.Location = new System.Drawing.Point(31, 46);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(56, 17);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "Cidade:";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.txtSal);
+            this.groupBox5.Controls.Add(this.maskAdmi);
+            this.groupBox5.Controls.Add(this.cbDep);
+            this.groupBox5.Controls.Add(this.label22);
+            this.groupBox5.Controls.Add(this.cbCar);
+            this.groupBox5.Controls.Add(this.txtFunc);
+            this.groupBox5.Controls.Add(this.label9);
+            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Controls.Add(this.label20);
+            this.groupBox5.Controls.Add(this.label21);
+            this.groupBox5.Location = new System.Drawing.Point(269, 184);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(501, 155);
+            this.groupBox5.TabIndex = 18;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Profissão";
+            // 
+            // txtSal
+            // 
+            this.txtSal.BackColor = System.Drawing.Color.LavenderBlush;
+            this.txtSal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.txtSal.Location = new System.Drawing.Point(368, 46);
+            this.txtSal.Name = "txtSal";
+            this.txtSal.Size = new System.Drawing.Size(114, 21);
+            this.txtSal.TabIndex = 19;
+            // 
+            // maskAdmi
+            // 
+            this.maskAdmi.BackColor = System.Drawing.Color.LavenderBlush;
+            this.maskAdmi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.maskAdmi.Location = new System.Drawing.Point(140, 49);
+            this.maskAdmi.Mask = "0000/00/00";
+            this.maskAdmi.Name = "maskAdmi";
+            this.maskAdmi.Size = new System.Drawing.Size(114, 21);
+            this.maskAdmi.TabIndex = 20;
+            this.maskAdmi.ValidatingType = typeof(System.DateTime);
+            // 
+            // cbDep
+            // 
+            this.cbDep.BackColor = System.Drawing.Color.LavenderBlush;
+            this.cbDep.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.cbDep.FormattingEnabled = true;
+            this.cbDep.Location = new System.Drawing.Point(368, 20);
+            this.cbDep.Name = "cbDep";
+            this.cbDep.Size = new System.Drawing.Size(114, 23);
+            this.cbDep.TabIndex = 18;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label22.Location = new System.Drawing.Point(260, 24);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(102, 17);
+            this.label22.TabIndex = 18;
+            this.label22.Text = "Departamento:";
+            // 
+            // cbCar
+            // 
+            this.cbCar.BackColor = System.Drawing.Color.LavenderBlush;
+            this.cbCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.cbCar.FormattingEnabled = true;
+            this.cbCar.Location = new System.Drawing.Point(140, 20);
+            this.cbCar.Name = "cbCar";
+            this.cbCar.Size = new System.Drawing.Size(114, 23);
+            this.cbCar.TabIndex = 17;
+            // 
+            // txtFunc
+            // 
+            this.txtFunc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.txtFunc.Location = new System.Drawing.Point(140, 88);
+            this.txtFunc.Multiline = true;
+            this.txtFunc.Name = "txtFunc";
+            this.txtFunc.Size = new System.Drawing.Size(342, 54);
+            this.txtFunc.TabIndex = 21;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label9.Location = new System.Drawing.Point(77, 88);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 17);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Função:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label12.Location = new System.Drawing.Point(312, 50);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(56, 17);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Salário:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label20.Location = new System.Drawing.Point(81, 22);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(50, 17);
+            this.label20.TabIndex = 3;
+            this.label20.Text = "Cargo:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label21.Location = new System.Drawing.Point(6, 50);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(127, 17);
+            this.label21.TabIndex = 2;
+            this.label21.Text = "Data de Admissão:";
+            // 
+            // gpLogin
+            // 
+            this.gpLogin.Controls.Add(this.txtSenha);
+            this.gpLogin.Controls.Add(this.txtUsuario);
+            this.gpLogin.Controls.Add(this.label24);
+            this.gpLogin.Controls.Add(this.label23);
+            this.gpLogin.Location = new System.Drawing.Point(15, 463);
+            this.gpLogin.Name = "gpLogin";
+            this.gpLogin.Size = new System.Drawing.Size(200, 100);
+            this.gpLogin.TabIndex = 20;
+            this.gpLogin.TabStop = false;
+            this.gpLogin.Text = "Conta";
+            // 
+            // txtSenha
+            // 
+            this.txtSenha.BackColor = System.Drawing.Color.LavenderBlush;
+            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.txtSenha.Location = new System.Drawing.Point(73, 61);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
+            this.txtSenha.Size = new System.Drawing.Size(109, 21);
+            this.txtSenha.TabIndex = 28;
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.BackColor = System.Drawing.Color.LavenderBlush;
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.txtUsuario.Location = new System.Drawing.Point(73, 31);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(109, 21);
+            this.txtUsuario.TabIndex = 27;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label24.Location = new System.Drawing.Point(14, 61);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(53, 17);
+            this.label24.TabIndex = 19;
+            this.label24.Text = "Senha:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label23.Location = new System.Drawing.Point(6, 31);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(61, 17);
+            this.label23.TabIndex = 18;
+            this.label23.Text = "Usuário:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(11, 351);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(355, 20);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Deseja criar uma conta para este funcionario?";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button1.Location = new System.Drawing.Point(353, 554);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(97, 30);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Cadastrar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(710, 554);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(60, 30);
+            this.button2.TabIndex = 24;
+            this.button2.Text = "Sair";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // rbAdmin
+            // 
+            this.rbAdmin.AutoSize = true;
+            this.rbAdmin.Location = new System.Drawing.Point(15, 416);
+            this.rbAdmin.Name = "rbAdmin";
+            this.rbAdmin.Size = new System.Drawing.Size(203, 24);
+            this.rbAdmin.TabIndex = 26;
+            this.rbAdmin.TabStop = true;
+            this.rbAdmin.Text = "Clientes e Funcionarios";
+            this.rbAdmin.UseVisualStyleBackColor = true;
+            // 
+            // rbUsu
+            // 
+            this.rbUsu.AutoSize = true;
+            this.rbUsu.Location = new System.Drawing.Point(269, 416);
+            this.rbUsu.Name = "rbUsu";
+            this.rbUsu.Size = new System.Drawing.Size(88, 24);
+            this.rbUsu.TabIndex = 25;
+            this.rbUsu.TabStop = true;
+            this.rbUsu.Text = "Clientes";
+            this.rbUsu.UseVisualStyleBackColor = true;
+            // 
+            // checkSim
+            // 
+            this.checkSim.AutoSize = true;
+            this.checkSim.Location = new System.Drawing.Point(15, 374);
+            this.checkSim.Name = "checkSim";
+            this.checkSim.Size = new System.Drawing.Size(57, 24);
+            this.checkSim.TabIndex = 22;
+            this.checkSim.Text = "Sim";
+            this.checkSim.UseVisualStyleBackColor = true;
+            this.checkSim.CheckedChanged += new System.EventHandler(this.checkSim_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.groupBox1.Controls.Add(this.checkSim);
+            this.groupBox1.Controls.Add(this.rbUsu);
+            this.groupBox1.Controls.Add(this.rbAdmin);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.gpLogin);
+            this.groupBox1.Controls.Add(this.groupBox5);
+            this.groupBox1.Controls.Add(this.groupBox4);
+            this.groupBox1.Controls.Add(this.groupBox3);
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.pcBImg);
+            this.groupBox1.Controls.Add(this.ptFoto);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(776, 599);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Cadastro Funcionario";
+            // 
+            // tmrHora
+            // 
+            this.tmrHora.Enabled = true;
+            this.tmrHora.Interval = 1000;
+            this.tmrHora.Tick += new System.EventHandler(this.tmrHora_Tick_1);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stripHorario});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 613);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.TabIndex = 5;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // stripHorario
+            // 
+            this.stripHorario.Margin = new System.Windows.Forms.Padding(620, 1, 0, 2);
+            this.stripHorario.Name = "stripHorario";
+            this.stripHorario.Size = new System.Drawing.Size(47, 22);
+            this.stripHorario.Text = "Horario";
             // 
             // Cadastro_Func
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 638);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Cadastro_Func";
             this.Text = "SpaceTech";
             this.Load += new System.EventHandler(this.Cadastro_Func_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.gpLogin.ResumeLayout(false);
-            this.gpLogin.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptFoto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcBImg)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcBImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptFoto)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.gpLogin.ResumeLayout(false);
+            this.gpLogin.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pcBImg;
         private System.Windows.Forms.PictureBox ptFoto;
+        private System.Windows.Forms.PictureBox pcBImg;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.RadioButton rdM;
+        private System.Windows.Forms.RadioButton rdF;
+        private System.Windows.Forms.MaskedTextBox maskRG;
+        private System.Windows.Forms.MaskedTextBox maskCPF;
+        private System.Windows.Forms.MaskedTextBox maskDataNasc;
         private System.Windows.Forms.ComboBox cbPAis;
         private System.Windows.Forms.TextBox txtPis;
         private System.Windows.Forms.TextBox txtCTPS;
@@ -844,26 +875,15 @@ namespace CRUD
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.MaskedTextBox maskCel;
         private System.Windows.Forms.MaskedTextBox maskTel;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.GroupBox gpLogin;
-        private System.Windows.Forms.TextBox txtSenha;
-        private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.MaskedTextBox maskAdmi;
-        private System.Windows.Forms.ComboBox cbDep;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox cbCar;
-        private System.Windows.Forms.TextBox txtFunc;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox txtBairro;
         private System.Windows.Forms.ComboBox cbEst;
@@ -875,15 +895,31 @@ namespace CRUD
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.MaskedTextBox maskDataNasc;
-        private System.Windows.Forms.RadioButton rbUsu;
-        private System.Windows.Forms.RadioButton rbAdmin;
-        private System.Windows.Forms.CheckBox checkSim;
-        private System.Windows.Forms.MaskedTextBox maskRG;
-        private System.Windows.Forms.MaskedTextBox maskCPF;
+        private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox txtSal;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.RadioButton rdM;
-        private System.Windows.Forms.RadioButton rdF;
+        private System.Windows.Forms.MaskedTextBox maskAdmi;
+        private System.Windows.Forms.ComboBox cbDep;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ComboBox cbCar;
+        private System.Windows.Forms.TextBox txtFunc;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.GroupBox gpLogin;
+        private System.Windows.Forms.TextBox txtSenha;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RadioButton rbAdmin;
+        private System.Windows.Forms.RadioButton rbUsu;
+        private System.Windows.Forms.CheckBox checkSim;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Timer tmrHora;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel stripHorario;
     }
 }

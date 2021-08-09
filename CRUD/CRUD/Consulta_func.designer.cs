@@ -31,7 +31,6 @@ namespace CRUD
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Consulta_func));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.Lista1 = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -40,21 +39,22 @@ namespace CRUD
             this.Salario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CPF = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Usuario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.txtCPF = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.btConsultar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.maskCPF = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.groupBox1.Controls.Add(this.maskCPF);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.Lista1);
-            this.groupBox1.Controls.Add(this.txtCPF);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtID);
@@ -65,17 +65,6 @@ namespace CRUD
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Consultar";
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.button2.Location = new System.Drawing.Point(507, 31);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(81, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Pesquisar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Lista1
             // 
@@ -134,17 +123,10 @@ namespace CRUD
             // 
             this.Usuario.Text = "Usuário";
             // 
-            // txtCPF
-            // 
-            this.txtCPF.Location = new System.Drawing.Point(390, 31);
-            this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(100, 26);
-            this.txtCPF.TabIndex = 3;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(337, 34);
+            this.label2.Location = new System.Drawing.Point(315, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 20);
             this.label2.TabIndex = 2;
@@ -191,6 +173,25 @@ namespace CRUD
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.button2.Location = new System.Drawing.Point(507, 34);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(81, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Pesquisar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // maskCPF
+            // 
+            this.maskCPF.Location = new System.Drawing.Point(368, 34);
+            this.maskCPF.Mask = "000.000.000-00";
+            this.maskCPF.Name = "maskCPF";
+            this.maskCPF.Size = new System.Drawing.Size(133, 26);
+            this.maskCPF.TabIndex = 8;
+            // 
             // Consulta_func
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,7 +214,6 @@ namespace CRUD
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btConsultar;
-        private System.Windows.Forms.TextBox txtCPF;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtID;
@@ -226,6 +226,7 @@ namespace CRUD
         private System.Windows.Forms.ColumnHeader CPF;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ColumnHeader Usuario;
+        private System.Windows.Forms.MaskedTextBox maskCPF;
         private System.Windows.Forms.Button button2;
     }
 }

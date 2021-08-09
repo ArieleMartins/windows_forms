@@ -15,6 +15,7 @@ namespace CRUD
         private string[] dados = new string[3];
         private string usuario;
         private string privi;
+        private string senha;
 
         private string cpf;
         private string nome;
@@ -58,13 +59,14 @@ namespace CRUD
             Menu menu = new Menu();
             menu.Usuario = usuario;
             menu.Privi = privi;
+            menu.Senha = senha;
             this.Hide();
             menu.ShowDialog();
         }
 
         private void btImprimi_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(txtNome.Text) || String.IsNullOrWhiteSpace(txtCpf.Text))
+            if (String.IsNullOrWhiteSpace(txtNome.Text) || String.IsNullOrWhiteSpace(maskCPF.Text))
             {
                 MessageBox.Show("Preeencha os campos obrigatorios", "Campos obrigatorios", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -74,7 +76,7 @@ namespace CRUD
                 {
                     BD bd = new BD();
                     bd.Nome = txtNome.Text;
-                    bd.Cpf = txtCpf.Text;
+                    bd.Cpf = maskCPF.Text;
                     bd.ConsTu();
                     if (bd.Tabela.Read())
                     {
@@ -103,7 +105,7 @@ namespace CRUD
                 {
                     BD bd = new BD();
                     bd.Nome = txtNome.Text;
-                    bd.Cpf = txtCpf.Text;
+                    bd.Cpf = maskCPF.Text;
                     bd.ImprimiFunc();
                     if (bd.Tabela.Read())
                     {
@@ -173,6 +175,10 @@ namespace CRUD
             e.Graphics.DrawString("Email: " + email, letra, pincel, new Point(0, 470));
             e.Graphics.DrawString(label4.Text, new Font("Arial", 20, FontStyle.Regular), pincel, new Point(0, 510));
             e.Graphics.DrawString("Data da Impressão: " + DateTime.Now.ToString("d/MM/yyyy"), letra, pincel, new Point(0, 1110));
+        }
+        public string Senha
+        {
+            set { this.senha = value; }
         }
     }
 }

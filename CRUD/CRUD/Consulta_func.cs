@@ -15,6 +15,8 @@ namespace CRUD
     {
         private string[] dados = new string[7];
         private string usuario;
+        private string senha;
+        private string privi;
         public Consulta_func()
         {
             InitializeComponent();
@@ -51,7 +53,7 @@ namespace CRUD
             if(Lista1.SelectedItems.Count > 0)
             {
                 txtID.Text = Lista1.SelectedItems[0].SubItems[0].Text;
-                txtCPF.Text = Lista1.SelectedItems[0].SubItems[5].Text;
+                maskCPF.Text = Lista1.SelectedItems[0].SubItems[5].Text;
             }
             
         }
@@ -60,6 +62,8 @@ namespace CRUD
         {
             Menu menu = new Menu();
             menu.Usuario = usuario;
+            menu.Senha = senha;
+            menu.Privi = privi;
             this.Hide();
             menu.ShowDialog();
         }
@@ -85,7 +89,7 @@ namespace CRUD
                 }
                 else
                 {
-                    txtCPF.Clear();
+                    maskCPF.Clear();
                     buscar.Selected = false;
                 }
             }
@@ -96,7 +100,7 @@ namespace CRUD
         {
             foreach (ListViewItem buscar in Lista1.Items)
             {
-                if (txtCPF.Text.ToUpper() == buscar.SubItems[5].Text.ToUpper())
+                if (maskCPF.Text.ToUpper() == buscar.SubItems[5].Text.ToUpper())
                 {
                     
                     buscar.Selected = true;
@@ -110,45 +114,54 @@ namespace CRUD
 
         private void btConsultar_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(txtID.Text) && String.IsNullOrWhiteSpace(txtCPF.Text))
+            try
             {
-                MessageBox.Show("É preciso informar o ID e CPF do funcionario para consultar os dados do mesmo", "Campos Necessarios", MessageBoxButtons.OK, MessageBoxIcon.Question);
-            }
-            else
-            {
-                BD bd = new BD();
-                bd.Id = int.Parse(txtID.Text);
-                bd.Cpf = txtCPF.Text;
-                bd.Consultar();
-                if (bd.Tabela.HasRows)
+                if (String.IsNullOrWhiteSpace(txtID.Text) && String.IsNullOrWhiteSpace(maskCPF.Text))
                 {
-                    if (bd.Tabela.Read())
+                    MessageBox.Show("É preciso informar o ID e CPF do funcionario para consultar os dados do mesmo", "Campos Necessarios", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
+                else
+                {
+                    BD bd = new BD();
+                    bd.Id = int.Parse(txtID.Text);
+                    bd.Cpf = maskCPF.Text;
+                    bd.Consultar();
+                    if (bd.Tabela.HasRows)
                     {
-                        if (bd.Tabela["usuario_log"].ToString() != "" && bd.Tabela["senha_log"].ToString() != "")
+                        if (bd.Tabela.Read())
                         {
-                            Consulta_funcesp funcionario = new Consulta_funcesp();
-                            funcionario.Usuario = usuario;
-                            funcionario.Cpf = txtCPF.Text;
-                            funcionario.Id = int.Parse(txtID.Text);
-                            bd.Tabela.Close();
-                            bd.Conexao.Close();
-                            this.Hide();
-                            funcionario.ShowDialog();
-                        }
-                        else if(bd.Tabela["usuario_log"].ToString() == "" && bd.Tabela["senha_log"].ToString() == "")
-                        {
-                            Consulta_funcesp2 usu = new Consulta_funcesp2();
-                            usu.Usuario = usuario;
-                            usu.Cpf = txtCPF.Text;
-                            usu.Id = int.Parse(txtID.Text);
-                            bd.Tabela.Close();
-                            bd.Conexao.Close();
-                            this.Hide();
-                            usu.ShowDialog();
+                            if (bd.Tabela["usuario_log"].ToString() != "" && bd.Tabela["senha_log"].ToString() != "")
+                            {
+                                Consulta_funcesp funcionario = new Consulta_funcesp();
+                                funcionario.Usuario = usuario;
+                                funcionario.Senha = senha;
+                                funcionario.Cpf = maskCPF.Text;
+                                funcionario.Id = int.Parse(txtID.Text);
+                                bd.Tabela.Close();
+                                bd.Conexao.Close();
+                                this.Hide();
+                                funcionario.ShowDialog();
+                            }
+                            else if (bd.Tabela["usuario_log"].ToString() == "" && bd.Tabela["senha_log"].ToString() == "")
+                            {
+                                Consulta_funcesp2 usu = new Consulta_funcesp2();
+                                usu.Usuario = usuario;
+                                usu.Senha = senha;
+                                usu.Cpf = maskCPF.Text;
+                                usu.Id = int.Parse(txtID.Text);
+                                bd.Tabela.Close();
+                                bd.Conexao.Close();
+                                this.Hide();
+                                usu.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Funcionario não encontrado");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Funcionario não encontrado");
+                            MessageBox.Show("Funcionario não encontrado!");
                         }
                     }
                     else
@@ -156,15 +169,22 @@ namespace CRUD
                         MessageBox.Show("Funcionario não encontrado!");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Funcionario não encontrado!");
-                }
+            }catch (System.FormatException err)
+            {
+                MessageBox.Show("É preciso informar o ID e CPF do funcionario para consultar os dados do mesmo", "Campos Necessarios", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
         }
         public string Usu
         {
             set { this.usuario = value; }
+        }
+        public string Senha
+        {
+            set { this.senha = value; }
+        }
+        public string Privi
+        {
+            set { this.privi = value; }
         }
     }
 }

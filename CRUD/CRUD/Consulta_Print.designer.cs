@@ -37,13 +37,13 @@ namespace CRUD
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtCpf = new System.Windows.Forms.TextBox();
             this.btImprimi = new System.Windows.Forms.Button();
             this.imprimirDocumento = new System.Drawing.Printing.PrintDocument();
             this.print = new System.Windows.Forms.PrintPreviewDialog();
             this.label4 = new System.Windows.Forms.Label();
             this.printFunc = new System.Windows.Forms.PrintPreviewDialog();
             this.ImprimirDocument2 = new System.Drawing.Printing.PrintDocument();
+            this.maskCPF = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // label2
@@ -119,14 +119,6 @@ namespace CRUD
             this.txtNome.Size = new System.Drawing.Size(221, 23);
             this.txtNome.TabIndex = 14;
             // 
-            // txtCpf
-            // 
-            this.txtCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtCpf.Location = new System.Drawing.Point(85, 139);
-            this.txtCpf.Name = "txtCpf";
-            this.txtCpf.Size = new System.Drawing.Size(153, 23);
-            this.txtCpf.TabIndex = 15;
-            // 
             // btImprimi
             // 
             this.btImprimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
@@ -176,14 +168,23 @@ namespace CRUD
             // 
             this.ImprimirDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.ImprimirDocument2_PrintPage);
             // 
+            // maskCPF
+            // 
+            this.maskCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.maskCPF.Location = new System.Drawing.Point(85, 140);
+            this.maskCPF.Mask = "000.000.000-00";
+            this.maskCPF.Name = "maskCPF";
+            this.maskCPF.Size = new System.Drawing.Size(120, 23);
+            this.maskCPF.TabIndex = 18;
+            // 
             // Consulta_Print
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(345, 250);
+            this.Controls.Add(this.maskCPF);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btImprimi);
-            this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -192,6 +193,7 @@ namespace CRUD
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Consulta_Print";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SpaceTech";
@@ -210,12 +212,12 @@ namespace CRUD
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.TextBox txtCpf;
         private System.Windows.Forms.Button btImprimi;
         private System.Drawing.Printing.PrintDocument imprimirDocumento;
         private System.Windows.Forms.PrintPreviewDialog print;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PrintPreviewDialog printFunc;
         private System.Drawing.Printing.PrintDocument ImprimirDocument2;
+        private System.Windows.Forms.MaskedTextBox maskCPF;
     }
 }

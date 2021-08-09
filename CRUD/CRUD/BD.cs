@@ -44,6 +44,7 @@ namespace CRUD
         private string usuario;
         private string senha;
         private int privi;
+        private int cad;
 
         private int idlog;
         private string usuario_log;
@@ -177,7 +178,7 @@ namespace CRUD
             {
                 conexao = new MySqlConnection(caminho);
                 conexao.Open();
-                sql = $"insert into tb_aluno(nome_a, sexo_a, dtnasc_a, cpf_a, rg_a, org_a, email_a, tel_a, cel_a, rua_a, bairro_a, cidade_a, n_a, matri_a, id_est, id_pais, id_c, id_h , foto_a) values('{nome}', '{sexo}', '{nasc.ToString("yyyy/MM/d")}', '{cpf}', '{rg}' , '{org}', '{email}', '{tel}', '{cel}', '{rua}', '{bairro}', '{cidade}', '{num}', '{matricula.ToString("yyyy/MM/d")}', {est}, {pais}, {curso}, {hora}, '{foto}'); ";
+                sql = $"insert into tb_aluno(nome_a, sexo_a, dtnasc_a, cpf_a, rg_a, org_a, email_a, tel_a, cel_a, rua_a, bairro_a, cidade_a, n_a, matri_a, id_est, id_pais, id_c, id_h , foto_a, resp_a) values('{nome}', '{sexo}', '{nasc.ToString("yyyy/MM/d")}', '{cpf}', '{rg}' , '{org}', '{email}', '{tel}', '{cel}', '{rua}', '{bairro}', '{cidade}', '{num}', '{matricula.ToString("yyyy/MM/d")}', {est}, {pais}, {curso}, {hora}, '{foto}', '{responsavel}'); ";
                 command = new MySqlCommand(sql, conexao);
                 resp = command.ExecuteNonQuery();
             }
@@ -396,6 +397,21 @@ namespace CRUD
                 MessageBox.Show("Servidor não disponivel, tente mais tarde");
             }
         }
+        public void ListaFuncionarios()
+        {
+            try
+            {
+                conexao = new MySqlConnection(caminho);
+                conexao.Open();
+                sql = $"select * from tb_fk_f_f inner join tb_func on tb_fk_f_f.func_cad = tb_func.func_cad where tb_fk_f_f.id_func = {id}";
+                command = new MySqlCommand(sql, conexao);
+                tabela = command.ExecuteReader();
+            }
+            catch (MySqlException err)
+            {
+                MessageBox.Show("Servidor não disponivel, tente mais tarde");
+            }
+        }
         public string UsuarioLog
         {
             set { this.usuario_log = value; }
@@ -517,7 +533,7 @@ namespace CRUD
             {
                 conexao = new MySqlConnection(caminho);
                 conexao.Open();
-                sql = $"insert into tb_func(nome_func, sexo_func, data_func, cpf_func, rg_func, org_func, pis_func, email_func, tel_func, cel_func, carte_func, rua_func, bairro_func, cidade_func, n_func, admi_func, salario_func, func_func, id_car, id_dep, id_est, id_pais, foto_func) values('{nome}', '{sexo}', '{nasc.ToString("yyyy/MM/d")}', '{cpf}', '{rg}' , '{org}', '{pis}', '{email}', '{tel}', '{cel}', '{ctps}', '{rua}', '{bairro}', '{cidade}', '{num}', '{admi.ToString("yyyy/MM/d")}', {salario}, '{funcao}', {cargo}, {dep}, {est}, {pais}, '{foto}'); ";
+                sql = $"insert into tb_func(nome_func, sexo_func, data_func, cpf_func, rg_func, org_func, pis_func, email_func, tel_func, cel_func, carte_func, rua_func, bairro_func, cidade_func, n_func, admi_func, salario_func, func_func, id_car, id_dep, id_est, id_pais, foto_func, func_cad) values('{nome}', '{sexo}', '{nasc.ToString("yyyy/MM/d")}', '{cpf}', '{rg}' , '{org}', '{pis}', '{email}', '{tel}', '{cel}', '{ctps}', '{rua}', '{bairro}', '{cidade}', '{num}', '{admi.ToString("yyyy/MM/d")}', {salario}, '{funcao}', {cargo}, {dep}, {est}, {pais}, '{foto}', {cad}); ";
                 command = new MySqlCommand(sql, conexao);
                 resp = command.ExecuteNonQuery();
             }
@@ -542,7 +558,21 @@ namespace CRUD
                 MessageBox.Show(err.ToString());
             }
         }
-
+        public void Funcionarios()
+        {
+            try
+            {
+                conexao = new MySqlConnection(caminho);
+                conexao.Open();
+                sql = $"insert into tb_fk_f_f(id_func, func_cad) values({id}, {cad});";
+                command = new MySqlCommand(sql, conexao);
+                resp = command.ExecuteNonQuery();
+            }
+            catch (MySqlException err)
+            {
+                MessageBox.Show(err.ToString());
+            }
+        }
         public void IdLog() 
         {
             try
@@ -771,6 +801,11 @@ namespace CRUD
         {
             set { this.matricula = value; }
             get { return this.matricula; }
+        }
+        public int Cad
+        {
+            set { this.cad = value; }
+            get { return this.cad; }
         }
     }
 }

@@ -19,6 +19,7 @@ namespace CRUD
         private string foto;
         private string destino;
         private string usuario;
+        private string senha;
         private string local;
         public Consulta_funcesp2()
         {
@@ -27,12 +28,16 @@ namespace CRUD
 
         private void Consulta_funcesp2_Load(object sender, EventArgs e)
         {
+
+            stripHorario.Text = DateTime.Now.ToString();
+            tmrHora.Enabled = true;
             rbAdmin.Visible = false;
             rbUsu.Visible = false;
             rdF.Checked = true;
             rbAdmin.Checked = false;
             rbUsu.Checked = false;
             gpConta.Visible = false;
+            ptFoto.Image = Properties.Resources.Design_sem_nome;
             this.Size = new Size(816, 530);
             BD bd = new BD();
             try
@@ -365,9 +370,18 @@ namespace CRUD
                     MessageBox.Show("Dados da conta deletado!!!", "Conta Deletado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Consulta_func funcionario = new Consulta_func();
                     funcionario.Usu = usuario;
-                    if (File.Exists(local))
+                    try
                     {
-                        File.Delete(local);
+                        ptFoto.Image.Dispose();
+                        if (File.Exists(local))
+                        {
+                            //como o picturebox usa o caminho da imagem para exibir ao usuario, então por ela esta usando o file.delete não permite que a imagem seja deleta, para deletar a imagem tem que ser 'descartada' as imagens que o picture box está utilizando para isso é utilizado o dispose.
+                            
+                            File.Delete(local);
+                        }
+                    }catch (System.IO.IOException err)
+                    {
+                        MessageBox.Show("Não é possivel deletar, pois a imagem está sendo usada", "Imagem Usada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     this.Hide();
                     funcionario.ShowDialog();
@@ -412,12 +426,17 @@ namespace CRUD
         {
             Consulta_func funcionario = new Consulta_func();
             funcionario.Usu = usuario;
+            funcionario.Senha = senha;
             this.Hide();
             funcionario.ShowDialog();
         }
         public string Usuario
         {
             set { this.usuario = value; }
+        }
+        public string Senha
+        {
+            set { this.senha = value; }
         }
 
         private void pcBImg_MouseEnter(object sender, EventArgs e)
@@ -428,6 +447,11 @@ namespace CRUD
         private void pcBImg_MouseLeave(object sender, EventArgs e)
         {
             pcBImg.Image = Properties.Resources.CameraIcon2;
+        }
+
+        private void tmrHora_Tick(object sender, EventArgs e)
+        {
+            stripHorario.Text = DateTime.Now.ToString();
         }
     }
 }
