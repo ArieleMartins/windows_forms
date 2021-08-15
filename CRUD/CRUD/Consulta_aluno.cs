@@ -25,6 +25,9 @@ namespace CRUD
         private int id_consulta;
         private string local;
         private int idcurso;
+        private string nomet;
+        private List<string> cpfver = new List<string>();
+        private List<string> idver = new List<string>();
         public Consulta_aluno()
         {
             InitializeComponent();
@@ -40,17 +43,6 @@ namespace CRUD
             while (bd.Tabela.Read())
             {
                 cbCurso.Items.Add(bd.Tabela["nome_c"].ToString());
-            }
-            bd.Tabela.Close();
-            bd.Horario();
-            while (bd.Tabela.Read())
-            {
-                cbHorario.Items.Add(bd.Tabela["hora_h"].ToString());
-            }
-            bd.Turma();
-            while (bd.Tabela.Read())
-            {
-                cbTurma.Items.Add(bd.Tabela["nome_t"].ToString());
             }
             bd.Tabela.Close();
             bd.Estado();
@@ -102,9 +94,9 @@ namespace CRUD
                 maskTel.Text = bd.Tabela["tel_a"].ToString();
                 cbCurso.SelectedIndex = int.Parse(bd.Tabela["id_c"].ToString()) - 1;
                 cbEst.SelectedIndex = int.Parse(bd.Tabela["id_est"].ToString()) - 1;
-                cbHorario.SelectedIndex = int.Parse(bd.Tabela["id_h"].ToString()) - 1;
                 cbPAis.SelectedIndex = int.Parse(bd.Tabela["id_pais"].ToString()) - 1;
-                cbTurma.SelectedIndex = int.Parse(bd.Tabela["id_t"].ToString()) - 1;
+                cbTurma.SelectedItem= bd.Tabela["nome_t"].ToString();
+                cbHorario.SelectedItem = bd.Tabela["hora_h"].ToString();
                 if (bd.Tabela["foto_a"].ToString() != "")
                 {
                     foto = bd.Tabela["foto_a"].ToString();
@@ -209,8 +201,8 @@ namespace CRUD
                 resp = MessageBox.Show("Tem certeza que deseja alterar os dados do  aluno?", "Alterar Dados", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (resp == DialogResult.Yes)
                 {
-                    try
-                    {
+                    //try
+                    //{
                         try
                         {
                             BD bd = new BD();
@@ -219,13 +211,37 @@ namespace CRUD
                             //bd.ConsAlu();
                             //if (bd.Tabela.Read())
                             //{
-                                //id_consulta = int.Parse(bd.Tabela["id_aluno"].ToString());
+                            //id_consulta = int.Parse(bd.Tabela["id_aluno"].ToString());
                             //}
                             //else
                             //{
-                                //MessageBox.Show("Não foi possivel encontrar o aluno");
+                            //MessageBox.Show("Não foi possivel encontrar o aluno");
                             //}
                             //bd.Tabela.Close();
+                            bd.ListaAlu();
+                            while (bd.Tabela.Read())
+                            {
+                                cpfver.Add(bd.Tabela["cpf_a"].ToString());
+                                idver.Add(bd.Tabela["id_aluno"].ToString());
+                            }
+                            if (bd.Tabela.HasRows == true)
+                            {
+                                foreach (string listacpf in cpfver)
+                                {
+                                    foreach (string listaid in idver)
+                                    {
+                                        if (listaid != id.ToString())
+                                        {
+                                            if (listacpf == maskCPF.Text)
+                                            {
+                                                MessageBox.Show("Já exite um aluno com esse cpf cadastrado", "CPF Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                return;
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
                             bd.Nome = txtNome.Text;
                             bd.Matri = DateTime.Parse(maskMatricula.Text);
                             bd.Nasc = DateTime.Parse(maskDataNasc.Text);
@@ -344,11 +360,11 @@ namespace CRUD
                         {
                             MessageBox.Show("Não foi possivel encontrar o diretorio de destino", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Não foi possivel carregar a imagem", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    //}
+                    //catch (Exception)
+                    //{
+                        //MessageBox.Show("Não foi possivel carregar a imagem", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //}
                 }
             }
         }
@@ -369,6 +385,7 @@ namespace CRUD
                     Consultar_alunos alunos = new Consultar_alunos();
                     alunos.Usuario = usuario;
                     alunos.Privi = privi;
+                    alunos.Senha = senha;
                     try
                     {
                         ptFoto.Image.Dispose();
@@ -397,6 +414,49 @@ namespace CRUD
         private void tmrHora_Tick(object sender, EventArgs e)
         {
             stripHorario.Text = DateTime.Now.ToString();
+        }
+
+        private void cbTurma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbTurma.SelectedIndex != -1)
+            {
+                BD bd = new BD();
+
+                bd.nomeTurma = cbTurma.SelectedItem.ToString();
+                bd.hTurma();
+                while (bd.Tabela.Read())
+                {
+                    cbHorario.Items.Add(bd.Tabela["hora_h"].ToString());
+                }
+                if (bd.Tabela.HasRows == false)
+                {
+                    cbHorario.Items.RemoveAt(0);
+                }
+                bd.Tabela.Close();
+                bd.Conexao.Close();
+            }
+        }
+
+        private void cbCurso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCurso.SelectedIndex != -1)
+            {
+                BD bd = new BD();
+
+                bd.NomeCurso = cbCurso.SelectedItem.ToString();
+                bd.Turma();
+                while (bd.Tabela.Read())
+                {
+                    cbTurma.Items.Add(bd.Tabela["nome_t"].ToString());
+
+                }
+                if (bd.Tabela.HasRows == false)
+                {
+                    cbTurma.Items.RemoveAt(0);
+                }
+                bd.Tabela.Close();
+                bd.Conexao.Close();
+            }
         }
     }
 }

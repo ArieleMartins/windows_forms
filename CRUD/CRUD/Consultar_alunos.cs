@@ -105,6 +105,7 @@ namespace CRUD
 
                             Consulta_aluno aluno = new Consulta_aluno();
                             aluno.Usuario = usuario;
+                            aluno.Senha = senha;
                             aluno.Privi = privi;
                             aluno.Cpf = maskCPF.Text;
                             aluno.Id = int.Parse(txtID.Text);

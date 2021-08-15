@@ -1,9 +1,11 @@
 -- OBSERVAÇÕES\ALERTAS: NÃO FAÇA CADASTROS DE ALUNOS COM A CONTA ADMIN, POIS É NECESSARIO QUE O LOGIN
--- TENHA UM FUNCIONARIO VINCULADO. SE FOR CADASTRAR FUNCIONARIOS COM A CONTA ADMIN DARÁ ERRO, MAS O FUNCIONARIO SERÁ CADASTRADO, POIS
--- TAMBEM É NECESSÁRIO POSSUIR UM FUNCIONARIO VINCULADO COM A CONTA\LOGIN, PORÉM VOCÊ PODE E DEVE PARA PRIMEIRO ACESSO CADASTRAR UM
--- FUNCIONARIO COM ESSA CONTA E CRIAR UM LOGIN PARA ESSE FUNCIONARIO E UTILIZA-LO PARA FAZER CADASTRO DE
--- ALUNOS E FUNCIONARIOS, NÃO DARÁ ERRO...PELO MENOS É O QUE EU ESPERO. MAS ESSE PRIMEIRO FUNCIONARIO NÃO SERÁ MARCADO\REGISTRADO NA TABELA DE
--- RELAÇÃO DA TABELA FUNCIONARIO COM ELA MESMA, ENTÃO O USUÁRIO NÃO PODERÁ VER QUEM O REGISTROU.
+-- TENHA UM FUNCIONÁRIO VINCULADO. SE FOR CADASTRAR FUNCIONÁRIOS COM A CONTA ADMIN DARÁ ERRO, MAS O FUNCIONÁRIO SERÁ CADASTRADO, POIS
+-- TAMBEM É NECESSÁRIO POSSUIR UM FUNCIONÁRIO VINCULADO COM A CONTA\LOGIN, PORÉM VOCÊ PODE E DEVE PARA PRIMEIRO ACESSO CADASTRAR UM
+-- FUNCIONÁRIO COM ESSA CONTA E CRIAR UM LOGIN PARA ESSE FUNCIONÁIO E UTILIZA-LO PARA FAZER CADASTRO DE
+-- ALUNOS E FUNCIONÁRIOS, NÃO DARÁ ERRO...PELO MENOS É O QUE EU ESPERO. MAS ESSE PRIMEIRO FUNCIONÁRIO NÃO SERÁ MARCADO\REGISTRADO NA TABELA DE
+-- RELAÇÃO DA TABELA FUNCIONÁRIO COM ELA MESMA, ENTÃO O USUÁRIO NÃO PODERÁ VER QUEM REGISTROU ESSE FUNCIONÁRIO.
+-- CRIAR TURMAS: PARA CRIAR UMA TURMA DEVE SE TER UM FUNCIONÁIO CADASTRADO COMO DOCENTE.
+-- CADASTRO DE ALUNOS: PARA PRIMEIRO ACESSO TEM (É OBRIGATORIO) QUE CRIAR UMA TURMA PRIMEIRO PARA EXECUTAR O CADATRO DO ALUNO.
 
 -- CRIANDO BANCO DE DADOS
 create database db_crud;
@@ -72,17 +74,6 @@ insert into tb_departamento(nome_dep) values("Administrativo"),
 ("RH"), ("Comercial"), ("Operacional"), ("Pedagógico"), ("Financeiro"), ("Secretaria"), ("Serviços Gerais"), ("Segurança do Trabalho"),
 ("Acadêmico");
 
--- TABELA TURMA
-create table tb_turma(id_t int primary key not null auto_increment,
-nome_t varchar(100) not null);
-
--- INSERINDO TURMAS
-insert into tb_turma(nome_t) values("Desenvolvedor Web Básica"), ("Desenvolvedor Web Avançado"), 
-("Eletronica Básica"),("Eletronica Avançada"), ("Artes Digitais Básica"),("Artes Digitais Avançado"), ("Produções de Games 2D Básica"),
-("Produções de Games 2D Avançado"),
-("Técnico em Inforática e Ensino Médio"), ("Técnico em Informatica"), ("Técnico em Redes"),
-("Informatica Básica"), ("Montagem e Manutenção de Computadores");
-
 -- TABELA CURSO
 create table tb_curso (id_c int primary key not null auto_increment,
 nome_c varchar(100) not null);
@@ -104,11 +95,6 @@ constraint fk_est_a foreign key (id_est) references tb_estado(id_est) on delete 
 constraint fk_c_a foreign key (id_c) references tb_curso(id_c) on delete cascade on update cascade,
 constraint fk_h_a foreign key (id_h) references tb_hora(id_h) on delete cascade on update cascade);
 
--- TABELA DE RELAÇÃO ALUNO, TURMA, CURSO E HORARIO
-create table tb_fk_a_t(id_t int, id_c int, id_h int, id_aluno int, constraint fk_t_a foreign key (id_t) references tb_turma(id_t) on delete cascade on update cascade,
-constraint fk_a_t foreign key (id_aluno) references tb_aluno(id_aluno) on delete cascade on update cascade, constraint fk_t_c foreign key (id_c) references tb_curso(id_c) on delete cascade on update cascade,
-constraint fk_t_h foreign key (id_h) references tb_hora(id_h) on delete cascade on update cascade);
-
 -- TABELA FUNCIONARIO
 create table tb_func(id_func int primary key not null auto_increment,
 nome_func varchar(100) not null, sexo_func char(1) not null, data_func date not null, cpf_func varchar(14) not null unique, rg_func varchar(14) not null,
@@ -120,6 +106,18 @@ constraint fk_est_func foreign key (id_est) references tb_estado(id_est) on dele
 constraint fk_pais_func foreign key (id_pais) references tb_pais(id_pais) on delete cascade on update cascade,
 constraint fk_car_func foreign key (id_car) references tb_cargo(id_car) on delete cascade on update cascade,
 constraint fk_dep_func foreign key (id_dep) references tb_departamento(id_dep) on delete cascade on update cascade);
+
+-- TABELA TURMA
+create table tb_turma(id_t int primary key not null auto_increment,
+nome_t varchar(100) not null,num_t int not null, max_a int not null, est_t varchar(100), id_c int, id_h int, id_func int, 
+constraint fk_c_t foreign key (id_c) references tb_curso(id_c) on delete cascade on update cascade,
+constraint fk_h_t foreign key (id_h) references tb_hora(id_h) on delete cascade on update cascade,
+constraint fk_t_f foreign key (id_func) references tb_func(id_func) on delete cascade on update cascade);
+
+-- TABELA DE RELAÇÃO ALUNO, TURMA, CURSO E HORARIO
+create table tb_fk_a_t(id_t int, id_c int, id_h int, id_aluno int, constraint fk_t_a foreign key (id_t) references tb_turma(id_t) on delete cascade on update cascade,
+constraint fk_a_t foreign key (id_aluno) references tb_aluno(id_aluno) on delete cascade on update cascade, constraint fk_t_c foreign key (id_c) references tb_curso(id_c) on delete cascade on update cascade,
+constraint fk_t_h foreign key (id_h) references tb_hora(id_h) on delete cascade on update cascade);
 
 -- TABELA LOGIN
 create table tb_login(id_log int primary key auto_increment,
@@ -137,8 +135,6 @@ constraint fk_a_f foreign key (id_aluno) references tb_aluno(id_aluno) on delete
 
 -- TABELA DE RELAÇÃO DE FUNCIONARIO COM ELA MESMA
 create table tb_fk_f_f(id_func int default 0 not null, func_cad int, constraint fk_f_f foreign key (id_func) references tb_func(id_func) on delete cascade on update cascade);
-
-
 
 -- DELETAR TABELA SE FOR NECESSÁRIO MUDAR ALGO
 drop database db_crud;

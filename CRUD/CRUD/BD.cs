@@ -38,6 +38,7 @@ namespace CRUD
         private string email;
         private string funcao;
         private string log;
+        private int maximo;
 
         private int resp;
 
@@ -57,11 +58,167 @@ namespace CRUD
         private int hora;
         private int turma;
         private int idaluno;
+        private string nturma;
+        private string estturma;
+        private int numt;
         private string responsavel;
         private DateTime matricula;
+        private string nomec;
         public MySqlConnection Conexao
         {
             get { return this.conexao; }
+        }
+        public void consultaTurma()
+        {
+            try
+            {
+                conexao = new MySqlConnection(caminho);
+                conexao.Open();
+                sql = $"select * from tb_turma inner join tb_hora on tb_turma.id_h = tb_hora.id_h inner join tb_curso on tb_turma.id_c = tb_curso.id_c";
+                command = new MySqlCommand(sql, conexao);
+                tabela = command.ExecuteReader();
+            }
+            catch (MySqlException err)
+            {
+                MessageBox.Show(err.ToString());
+            }
+        }
+        public void UpdateEstT()
+        {
+            try
+            {
+                conexao = new MySqlConnection(caminho);
+                conexao.Open();
+                sql = $"update tb_turma " +
+                    $"set est_t = '{estturma}' where id_t = {turma} and nome_t = '{nturma}'";
+                command = new MySqlCommand(sql, conexao);
+                resp = command.ExecuteNonQuery();
+            }
+            catch (MySqlException err)
+            {
+                MessageBox.Show(err.ToString());
+            }
+        }
+        public void consulT()
+        {
+            try
+            {
+                conexao = new MySqlConnection(caminho);
+                conexao.Open();
+                sql = $"select * from tb_turma inner join tb_curso on tb_turma.id_c = tb_curso.id_c where tb_curso.nome_c = '{nomec}' and nome_t = '{nturma}'";
+                command = new MySqlCommand(sql, conexao);
+                tabela = command.ExecuteReader();
+            }
+            catch (MySqlException err)
+            {
+                MessageBox.Show(err.ToString());
+            }
+        }
+        public void consulTAlu()
+        {
+            try
+            {
+                conexao = new MySqlConnection(caminho);
+                conexao.Open();
+                sql = $"select * from tb_fk_a_t inner join tb_aluno on tb_fk_a_t.id_aluno = tb_aluno.id_aluno inner join tb_curso on tb_fk_a_t.id_c = tb_curso.id_c inner join tb_hora on tb_fk_a_t.id_h = tb_hora.id_h inner join tb_turma on tb_fk_a_t.id_t = tb_turma.id_t where tb_curso.nome_c = '{nomec}' and nome_t = '{nturma}'";
+                command = new MySqlCommand(sql, conexao);
+                tabela = command.ExecuteReader();
+            }
+            catch (MySqlException err)
+            {
+                MessageBox.Show(err.ToString());
+            }
+        }
+        public void DeletarTurma()
+        {
+            try
+            {
+                conexao = new MySqlConnection(caminho);
+                conexao.Open();
+                sql = $"delete from tb_turma where id_t = {turma} and nome_t = '{nturma}'";
+                command = new MySqlCommand(sql, conexao);
+                resp = command.ExecuteNonQuery();
+            }
+            catch (MySqlException err)
+            {
+                MessageBox.Show(err.ToString());
+            }
+        }
+        public void UpdateTurma()
+        {
+            try
+            {
+                conexao = new MySqlConnection(caminho);
+                conexao.Open();
+                sql = $"update tb_turma " +
+                    $"set est_t = '{estturma}', id_h = {hora}, max_a = {maximo}, id_func = {id} where id_t = {turma} and nome_t = '{nturma}'";
+                command = new MySqlCommand(sql, conexao);
+                resp = command.ExecuteNonQuery();
+            }
+            catch (MySqlException err)
+            {
+                MessageBox.Show(err.ToString());
+            }
+        }
+        public void numTurma()
+        {
+            try
+            {
+                conexao = new MySqlConnection(caminho);
+                conexao.Open();
+                sql = $"select * from tb_turma inner join tb_hora on tb_turma.id_h = tb_hora.id_h inner join tb_curso on tb_turma.id_c = tb_curso.id_c where nome_c = '{nturma}'";
+                command = new MySqlCommand(sql, conexao);
+                tabela = command.ExecuteReader();
+            }
+            catch (MySqlException err)
+            {
+                MessageBox.Show(err.ToString());
+            }
+        }
+        public void consulTurma()
+        {
+            try
+            {
+                conexao = new MySqlConnection(caminho);
+                conexao.Open();
+                sql = $"select * from tb_turma inner join tb_hora on tb_turma.id_h = tb_hora.id_h inner join tb_func on tb_turma.id_func = tb_func.id_func where tb_turma.id_t = {turma} and nome_t = '{nturma}'";
+                command = new MySqlCommand(sql, conexao);
+                tabela = command.ExecuteReader();
+            }
+            catch (MySqlException err)
+            {
+                MessageBox.Show(err.ToString());
+            }
+        }
+        public void consulTurmas()
+        {
+            try
+            {
+                conexao = new MySqlConnection(caminho);
+                conexao.Open();
+                sql = $"select * from tb_fk_a_t inner join tb_aluno on tb_fk_a_t.id_aluno = tb_aluno.id_aluno inner join tb_curso on tb_fk_a_t.id_c = tb_curso.id_c inner join tb_hora on tb_fk_a_t.id_h = tb_hora.id_h inner join tb_turma on tb_fk_a_t.id_t = tb_turma.id_t where tb_turma.id_t = {turma} and nome_t = '{nturma}'";
+                command = new MySqlCommand(sql, conexao);
+                tabela = command.ExecuteReader();
+            }
+            catch (MySqlException err)
+            {
+                MessageBox.Show(err.ToString());
+            }
+        }
+        public void inserirTurma()
+        {
+            try
+            {
+                conexao = new MySqlConnection(caminho);
+                conexao.Open();
+                sql = $"insert into tb_turma(nome_t, max_a, est_t, id_c, num_t, id_h, id_func) values('{nturma}', {maximo}, '{estturma}',{curso}, {numt}, {hora}, {id}); ";
+                command = new MySqlCommand(sql, conexao);
+                resp = command.ExecuteNonQuery();
+            }
+            catch (MySqlException err)
+            {
+                MessageBox.Show(err.ToString());
+            }
         }
         public void DeletarFunc()
         {
@@ -243,7 +400,37 @@ namespace CRUD
             {
                 conexao = new MySqlConnection(caminho);
                 conexao.Open();
-                sql = $"select * from tb_turma";
+                sql = $"select * from tb_turma inner join tb_hora on tb_turma.id_h = tb_hora.id_h inner join tb_curso on tb_turma.id_c = tb_curso.id_c where nome_c = '{nomec}' and est_t = 'Disponivel'";
+                command = new MySqlCommand(sql, conexao);
+                tabela = command.ExecuteReader();
+            }
+            catch (MySqlException err)
+            {
+                MessageBox.Show(err.ToString());
+            }
+        }
+        public void hTurma()
+        {
+            try
+            {
+                conexao = new MySqlConnection(caminho);
+                conexao.Open();
+                sql = $"select * from tb_turma inner join tb_hora on tb_turma.id_h = tb_hora.id_h inner join tb_curso on tb_turma.id_c = tb_curso.id_c where nome_t = '{nturma}' and est_t = 'Disponivel'";
+                command = new MySqlCommand(sql, conexao);
+                tabela = command.ExecuteReader();
+            }
+            catch (MySqlException err)
+            {
+                MessageBox.Show(err.ToString());
+            }
+        }
+        public void Turmas()
+        {
+            try
+            {
+                conexao = new MySqlConnection(caminho);
+                conexao.Open();
+                sql = $"select * from tb_turma inner join tb_hora on tb_turma.id_h = tb_hora.id_h inner join tb_curso on tb_turma.id_c = tb_curso.id_c ";
                 command = new MySqlCommand(sql, conexao);
                 tabela = command.ExecuteReader();
             }
@@ -397,6 +584,37 @@ namespace CRUD
                 MessageBox.Show("Servidor não disponivel, tente mais tarde");
             }
         }
+        public void encDocente()
+        {
+            try
+            {
+                conexao = new MySqlConnection(caminho);
+                conexao.Open();
+                sql = $"select * from tb_func inner join tb_departamento on tb_func.id_dep = tb_departamento.id_dep inner join tb_cargo on tb_func.id_car = tb_cargo.id_car left join tb_login on tb_func.id_func = tb_login.id_func where nome_func = '{nome}' and tb_func.id_func = {id};";
+                command = new MySqlCommand(sql, conexao);
+                tabela = command.ExecuteReader();
+            }
+            catch (MySqlException err)
+            {
+                MessageBox.Show(err.ToString());
+            }
+        }
+        public void listaDocentes()
+        {
+            try
+            {
+                conexao = new MySqlConnection(caminho);
+                conexao.Open();
+                sql = "select * from tb_func inner join tb_departamento on tb_func.id_dep = tb_departamento.id_dep inner join tb_cargo on tb_func.id_car = tb_cargo.id_car left join tb_login on tb_func.id_func = tb_login.id_func where nome_car = 'Docente';";
+                command = new MySqlCommand(sql, conexao);
+                tabela = command.ExecuteReader();
+            }
+            catch (MySqlException err)
+            {
+                MessageBox.Show(err.ToString());
+            }
+        }
+
         public void ListaFuncionarios()
         {
             try
@@ -539,7 +757,8 @@ namespace CRUD
             }
             catch (MySqlException err)
             {
-               MessageBox.Show(err.ToString());
+                MessageBox.Show(err.ToString());
+                
             }
         }
 
@@ -806,6 +1025,31 @@ namespace CRUD
         {
             set { this.cad = value; }
             get { return this.cad; }
+        }
+        public int Maximo
+        {
+            set { this.maximo = value; }
+            get { return this.maximo; }
+        }
+        public string nomeTurma
+        {
+            set { this.nturma = value; }
+            get { return this.nturma; }
+        }
+        public string EstadoTurma
+        {
+            set { this.estturma = value; }
+            get { return this.estturma; }
+        }
+        public int NumeroTurma
+        {
+            set { this.numt = value; }
+            get { return this.numt; }
+        }
+        public string NomeCurso
+        {
+            set { this.nomec = value; }
+            get { return this.nomec; }
         }
     }
 }

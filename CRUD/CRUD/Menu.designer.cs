@@ -47,10 +47,17 @@ namespace CRUD
             this.funcionarios = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.turmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.criarTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Horario = new System.Windows.Forms.ToolStripLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.gpCli = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pcTurma = new System.Windows.Forms.PictureBox();
+            this.pcCriar = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ptCoCli = new System.Windows.Forms.PictureBox();
@@ -64,6 +71,8 @@ namespace CRUD
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.gpCli.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcTurma)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcCriar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptCoCli)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptAddCli)).BeginInit();
             this.gpFunc.SuspendLayout();
@@ -76,7 +85,8 @@ namespace CRUD
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ferramentasToolStripMenuItem,
             this.clientesToolStripMenuItem,
-            this.funcionarios});
+            this.funcionarios,
+            this.turmaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(716, 24);
@@ -201,6 +211,29 @@ namespace CRUD
             this.consultarToolStripMenuItem1.Text = "Consultar";
             this.consultarToolStripMenuItem1.Click += new System.EventHandler(this.consultarToolStripMenuItem1_Click);
             // 
+            // turmaToolStripMenuItem
+            // 
+            this.turmaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.criarTurmaToolStripMenuItem,
+            this.consultarToolStripMenuItem2});
+            this.turmaToolStripMenuItem.Name = "turmaToolStripMenuItem";
+            this.turmaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.turmaToolStripMenuItem.Text = "Turma";
+            // 
+            // criarTurmaToolStripMenuItem
+            // 
+            this.criarTurmaToolStripMenuItem.Name = "criarTurmaToolStripMenuItem";
+            this.criarTurmaToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.criarTurmaToolStripMenuItem.Text = "Criar";
+            this.criarTurmaToolStripMenuItem.Click += new System.EventHandler(this.criarTurmaToolStripMenuItem_Click);
+            // 
+            // consultarToolStripMenuItem2
+            // 
+            this.consultarToolStripMenuItem2.Name = "consultarToolStripMenuItem2";
+            this.consultarToolStripMenuItem2.Size = new System.Drawing.Size(125, 22);
+            this.consultarToolStripMenuItem2.Text = "Consultar";
+            this.consultarToolStripMenuItem2.Click += new System.EventHandler(this.consultarToolStripMenuItem2_Click);
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -228,6 +261,10 @@ namespace CRUD
             // gpCli
             // 
             this.gpCli.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gpCli.Controls.Add(this.label6);
+            this.gpCli.Controls.Add(this.label1);
+            this.gpCli.Controls.Add(this.pcTurma);
+            this.gpCli.Controls.Add(this.pcCriar);
             this.gpCli.Controls.Add(this.label3);
             this.gpCli.Controls.Add(this.label2);
             this.gpCli.Controls.Add(this.ptCoCli);
@@ -239,6 +276,54 @@ namespace CRUD
             this.gpCli.TabIndex = 5;
             this.gpCli.TabStop = false;
             this.gpCli.Text = "Clientes";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label6.Location = new System.Drawing.Point(501, 154);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(66, 20);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Turmas";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label1.Location = new System.Drawing.Point(368, 154);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 20);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Criar";
+            // 
+            // pcTurma
+            // 
+            this.pcTurma.Image = global::CRUD.Properties.Resources.botao_consulta1;
+            this.pcTurma.Location = new System.Drawing.Point(487, 56);
+            this.pcTurma.Name = "pcTurma";
+            this.pcTurma.Size = new System.Drawing.Size(99, 95);
+            this.pcTurma.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcTurma.TabIndex = 7;
+            this.pcTurma.TabStop = false;
+            this.pcTurma.Click += new System.EventHandler(this.pcTurma_Click);
+            this.pcTurma.MouseEnter += new System.EventHandler(this.pcTurma_MouseEnter);
+            this.pcTurma.MouseLeave += new System.EventHandler(this.pcTurma_MouseLeave);
+            // 
+            // pcCriar
+            // 
+            this.pcCriar.Image = global::CRUD.Properties.Resources.botao_criar;
+            this.pcCriar.Location = new System.Drawing.Point(341, 56);
+            this.pcCriar.Name = "pcCriar";
+            this.pcCriar.Size = new System.Drawing.Size(100, 95);
+            this.pcCriar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcCriar.TabIndex = 6;
+            this.pcCriar.TabStop = false;
+            this.pcCriar.Click += new System.EventHandler(this.pcCriar_Click);
+            this.pcCriar.MouseEnter += new System.EventHandler(this.pcCriar_MouseEnter);
+            this.pcCriar.MouseLeave += new System.EventHandler(this.pcCriar_MouseLeave);
             // 
             // label3
             // 
@@ -262,6 +347,7 @@ namespace CRUD
             // 
             // ptCoCli
             // 
+            this.ptCoCli.Image = global::CRUD.Properties.Resources.Botao_consulta;
             this.ptCoCli.Location = new System.Drawing.Point(197, 56);
             this.ptCoCli.Name = "ptCoCli";
             this.ptCoCli.Size = new System.Drawing.Size(100, 95);
@@ -274,6 +360,7 @@ namespace CRUD
             // 
             // ptAddCli
             // 
+            this.ptAddCli.Image = global::CRUD.Properties.Resources.Botao_adicionar;
             this.ptAddCli.Location = new System.Drawing.Point(47, 56);
             this.ptAddCli.Name = "ptAddCli";
             this.ptAddCli.Size = new System.Drawing.Size(100, 95);
@@ -321,6 +408,7 @@ namespace CRUD
             // 
             // ptCoFunc
             // 
+            this.ptCoFunc.Image = global::CRUD.Properties.Resources.Botao_consulta;
             this.ptCoFunc.Location = new System.Drawing.Point(197, 55);
             this.ptCoFunc.Name = "ptCoFunc";
             this.ptCoFunc.Size = new System.Drawing.Size(100, 98);
@@ -333,6 +421,7 @@ namespace CRUD
             // 
             // ptAddFunc
             // 
+            this.ptAddFunc.Image = global::CRUD.Properties.Resources.Botao_adicionar;
             this.ptAddFunc.Location = new System.Drawing.Point(47, 55);
             this.ptAddFunc.Name = "ptAddFunc";
             this.ptAddFunc.Size = new System.Drawing.Size(100, 98);
@@ -376,6 +465,8 @@ namespace CRUD
             this.toolStrip1.PerformLayout();
             this.gpCli.ResumeLayout(false);
             this.gpCli.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcTurma)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcCriar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptCoCli)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptAddCli)).EndInit();
             this.gpFunc.ResumeLayout(false);
@@ -418,5 +509,12 @@ namespace CRUD
         private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem calculadoraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem turmaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem criarTurmaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pcTurma;
+        private System.Windows.Forms.PictureBox pcCriar;
     }
 }

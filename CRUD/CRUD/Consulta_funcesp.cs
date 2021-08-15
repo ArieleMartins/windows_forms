@@ -18,6 +18,7 @@ namespace CRUD
         private string origem;
         private string foto;
         private string destino;
+        private string privi;
         private DialogResult resp;
         private string usuario;
         private string senha;
@@ -389,6 +390,7 @@ namespace CRUD
             Consulta_func funcionario = new Consulta_func();
             funcionario.Usu = usuario;
             funcionario.Senha = senha;
+            funcionario.Privi = privi;
             this.Hide();
             funcionario.ShowDialog();
         }
@@ -421,6 +423,8 @@ namespace CRUD
                     MessageBox.Show("Dados da conta deletado!!!", "Conta Deletado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Consulta_func funcionario = new Consulta_func();
                     funcionario.Usu = usuario;
+                    funcionario.Senha = senha;
+                    funcionario.Privi = privi;
                     try
                     {
                         if (File.Exists(local))
@@ -475,6 +479,10 @@ namespace CRUD
         public string Usuario
         {
             set { this.usuario = value; }
+        }
+        public string Privi
+        {
+            set { this.privi = value; }
         }
 
         private void pcBImg_MouseEnter(object sender, EventArgs e)

@@ -135,6 +135,7 @@ namespace CRUD
                                 Consulta_funcesp funcionario = new Consulta_funcesp();
                                 funcionario.Usuario = usuario;
                                 funcionario.Senha = senha;
+                                funcionario.Privi = privi;
                                 funcionario.Cpf = maskCPF.Text;
                                 funcionario.Id = int.Parse(txtID.Text);
                                 bd.Tabela.Close();

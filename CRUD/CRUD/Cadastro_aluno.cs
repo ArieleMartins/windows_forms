@@ -28,6 +28,9 @@ namespace CRUD
         private string cpf;
         private int idcurso;
         private string privi;
+        private List<string> alunos = new List<string>();
+        private int max;
+        private List<string> cpfver = new List<string>();
         public Cadastro_aluno()
         {
             InitializeComponent();
@@ -52,24 +55,11 @@ namespace CRUD
                 cbPAis.Items.Add(bd.Tabela["nome_pais"].ToString());
             }
             bd.Tabela.Close();
-            bd.Turma();
-            while (bd.Tabela.Read())
-            {
-                cbTurma.Items.Add(bd.Tabela["nome_t"].ToString());
-            }
-            bd.Tabela.Close();
             bd.Curso();
             while (bd.Tabela.Read())
             {
                 cbCurso.Items.Add(bd.Tabela["nome_c"].ToString());
             }
-            bd.Tabela.Close();
-            bd.Horario();
-            while (bd.Tabela.Read())
-            {
-                cbHorario.Items.Add(bd.Tabela["hora_h"].ToString());
-            }
-            
             bd.Tabela.Close();
             bd.Conexao.Close();
         }
@@ -82,160 +72,224 @@ namespace CRUD
             }
             else
             {
+                string ano = maskDataNasc.Text.Substring(0, 4);
+                int idade = DateTime.Now.Year - int.Parse(ano);
+                if(idade < 18)
+                {
+                    if (String.IsNullOrWhiteSpace(txtResponsavel.Text))
+                    {
+                        MessageBox.Show("O ALUNO É MENOR DE IDADE, NOME DO RESPONSÁVEL OBRIGATÓRIO!", "CAMPO OBRIGATÓRIO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    } 
+                }
                 try
                 {
                     try { 
                         BD bd = new BD();
-                        bd.Nome = txtNome.Text;
-                        bd.Nasc = DateTime.Parse(maskDataNasc.Text);
-                        bd.Cpf = maskCPF.Text;
-                        cpf = maskCPF.Text;
-                        bd.Rg = maskRG.Text;
-                        bd.Org = txtOrg.Text;
-                        bd.Responsavel = txtResponsavel.Text;
-                        bd.Pais = cbPAis.SelectedIndex + 1;
-                        if (rdF.Checked)
+                        bd.ListaAlu();
+                        while (bd.Tabela.Read())
                         {
-                            bd.Sexo = Char.Parse("F");
+                            cpfver.Add(bd.Tabela["cpf_a"].ToString());
                         }
-                        else if(rdM.Checked)
+                        if (bd.Tabela.HasRows == true)
                         {
-                            bd.Sexo = char.Parse("M");
-                        }
-                        bd.Email = txtEmail.Text;
-                        bd.Tel = maskTel.Text;
-                        bd.Cel = maskCel.Text;
-                        bd.Rua = txtRua.Text;
-                        bd.Bairro = txtBairro.Text;
-                        bd.Cidade = txtCidade.Text;
-                        bd.Num = txtNum.Text;
-                        bd.Est = cbEst.SelectedIndex + 1;
-                        bd.IdCurso = cbCurso.SelectedIndex + 1;
-                        idcurso = cbCurso.SelectedIndex + 1;
-                        bd.Hora = cbHorario.SelectedIndex + 1;
-                        hora = cbHorario.SelectedIndex + 1;
-                        bd.Matri = DateTime.Parse(maskMatricula.Text);
-                        if(foto == null)
-                        {
-                            resp = MessageBox.Show("Nenhuma foto adicionada, deseja continuar?", "Sem Foto", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                        if(resp == DialogResult.No)
-                        {
-                            return;
-                        }
-                        }
-                        if(foto != null)
-                        {
-                            if (File.Exists(destino))
+                            foreach (string listacpf in cpfver)
                             {
-                                resp = MessageBox.Show("Foto já cadastrada, deseja substituir?", "Foto Existente", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                            if(resp == DialogResult.Yes)
+                                if (listacpf == maskCPF.Text)
+                                {
+                                    MessageBox.Show("Já exite um aluno com esse cpf cadastrado", "CPF Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    return;
+                                }
+
+                            }
+                        }
+                        bd.NomeCurso = cbCurso.SelectedItem.ToString();
+                        bd.nomeTurma = cbTurma.SelectedItem.ToString();
+                        bd.consulT();
+                        if (bd.Tabela.Read())
+                        {
+                            
+                            max = int.Parse(bd.Tabela["max_a"].ToString());
+                            idturma = int.Parse(bd.Tabela["id_t"].ToString());
+
+                        }
+                        bd.Tabela.Close();
+                        bd.NomeCurso = cbCurso.SelectedItem.ToString();
+                        bd.nomeTurma = cbTurma.SelectedItem.ToString();
+                        bd.consulTAlu();
+                        while (bd.Tabela.Read())
+                        {
+                            alunos.Add(bd.Tabela["nome_a"].ToString());
+                        }
+                        bd.Tabela.Close();
+                        int quanta = alunos.Count();
+                        if(quanta == 0)
+                        {
+                            quanta = 1;
+                        }
+                        if (quanta == max)
+                        {
+                            MessageBox.Show("Turma já concluida");
+                            bd.IdTurma = idturma;
+                            bd.nomeTurma = cbTurma.SelectedItem.ToString();
+                            bd.EstadoTurma = "Concluida";
+                            bd.UpdateEstT();
+                            bd.Tabela.Close();
+                        }
+                        else
+                        {
+                            bd.Nome = txtNome.Text;
+                            bd.Nasc = DateTime.Parse(maskDataNasc.Text);
+                            bd.Cpf = maskCPF.Text;
+                            cpf = maskCPF.Text;
+                            bd.Rg = maskRG.Text;
+                            bd.Org = txtOrg.Text;
+                            bd.Responsavel = txtResponsavel.Text;
+                            bd.Pais = cbPAis.SelectedIndex + 1;
+                            if (rdF.Checked)
                             {
-                                File.Copy(origem, destino, true);
-                                bd.Foto = foto;
-                                ptFoto.Image = Properties.Resources.Design_sem_nome;
+                                bd.Sexo = Char.Parse("F");
+                            }
+                            else if (rdM.Checked)
+                            {
+                                bd.Sexo = char.Parse("M");
+                            }
+                            bd.Email = txtEmail.Text;
+                            bd.Tel = maskTel.Text;
+                            bd.Cel = maskCel.Text;
+                            bd.Rua = txtRua.Text;
+                            bd.Bairro = txtBairro.Text;
+                            bd.Cidade = txtCidade.Text;
+                            bd.Num = txtNum.Text;
+                            bd.Est = cbEst.SelectedIndex + 1;
+                            bd.IdCurso = cbCurso.SelectedIndex + 1;
+                            idcurso = cbCurso.SelectedIndex + 1;
+                            bd.Hora = cbHorario.SelectedIndex + 1;
+                            hora = cbHorario.SelectedIndex + 1;
+                            bd.Matri = DateTime.Parse(maskMatricula.Text);
+                            if (foto == null)
+                            {
+                                resp = MessageBox.Show("Nenhuma foto adicionada, deseja continuar?", "Sem Foto", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                                if (resp == DialogResult.No)
+                                {
+                                    return;
+                                }
+                            }
+                            if (foto != null)
+                            {
+                                if (File.Exists(destino))
+                                {
+                                    resp = MessageBox.Show("Foto já cadastrada, deseja substituir?", "Foto Existente", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                                    if (resp == DialogResult.Yes)
+                                    {
+                                        File.Copy(origem, destino, true);
+                                        bd.Foto = foto;
+                                        ptFoto.Image = Properties.Resources.Design_sem_nome;
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Não Foi possivel substituir a imagem", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
+                                else
+                                {
+                                    File.Copy(origem, destino);
+                                    if (File.Exists(destino))
+                                    {
+                                        bd.Foto = foto;
+                                        ptFoto.Image = Properties.Resources.Design_sem_nome;
+                                        MessageBox.Show("Imagem salva com sucesso", "Imagem Salva", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Não foi possivel salvar a image", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+
+                                }
+                            }
+                            bd.CadastroAluno();
+                            if (bd.Resp > 0)
+                            {
+                                MessageBox.Show("Aluno Cadastrado com Sucesso", "Cadastrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                             {
-                                MessageBox.Show("Não Foi possivel substituir a imagem", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Não foi possivel cadastrar o aluno", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
                             }
-                        }
-                        else
-                        {
-                            File.Copy(origem, destino);
-                            if (File.Exists(destino))
+                            bd.Cpf = cpf;
+                            bd.SelectAluno();
+                            if (bd.Tabela.Read())
                             {
-                                bd.Foto = foto;
-                                ptFoto.Image = Properties.Resources.Design_sem_nome;
-                                MessageBox.Show("Imagem salva com sucesso", "Imagem Salva", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                idaluno = int.Parse(bd.Tabela["id_aluno"].ToString());
                             }
                             else
                             {
-                                MessageBox.Show("Não foi possivel salvar a image", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Não encontrar o aluno", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
                             }
-                        
+                            bd.Tabela.Close();
+                            bd.IdAluno = idaluno;
+                            bd.IdCurso = idcurso;
+                            bd.IdTurma = idturma;
+                            bd.Hora = hora;
+                            bd.CadTurma();
+                            if (bd.Resp > 0)
+                            {
+                                MessageBox.Show("Turma cadastra com sucesso", "Turma Cadastrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Não encontrar o aluno", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                            bd.Usuario = login;
+                            bd.Senha = senha;
+                            bd.CliId();
+                            if (bd.Tabela.Read())
+                            {
+                                idfunc = int.Parse(bd.Tabela["id_func"].ToString());
+                            }
+                            else
+                            {
+                                MessageBox.Show("Não encontrar o funcionario", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                            bd.Tabela.Close();
+                            bd.Id = idfunc;
+                            bd.IdAluno = idaluno;
+                            bd.TabCliFun();
+                            if (bd.Resp > 0)
+                            {
+                                MessageBox.Show("Cadastrado", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                txtRua.Clear();
+                                txtResponsavel.Clear();
+                                txtOrg.Clear();
+                                txtNum.Clear();
+                                txtNome.Clear();
+                                txtEmail.Clear();
+                                txtCidade.Clear();
+                                txtBairro.Clear();
+                                maskCel.Clear();
+                                maskCPF.Clear();
+                                maskDataNasc.Clear();
+                                maskMatricula.Clear();
+                                maskRG.Clear();
+                                maskTel.Clear();
+                                cbCurso.SelectedIndex = -1;
+                                cbEst.SelectedIndex = -1;
+                                cbHorario.SelectedIndex = -1;
+                                cbPAis.SelectedIndex = -1;
+                                cbTurma.SelectedIndex = -1;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Não foi possivel vincular funcionario com aluno", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
                         }
-                    }
-                    idturma = cbTurma.SelectedIndex + 1;
-                    bd.CadastroAluno();
-                    if(bd.Resp > 0)
-                    {
-                        MessageBox.Show("Aluno Cadastrado com Sucesso", "Cadastrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Não foi possivel cadastrar o aluno", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    bd.Cpf = cpf;
-                    bd.SelectAluno();
-                        if (bd.Tabela.Read())
-                        {
-                            idaluno = int.Parse(bd.Tabela["id_aluno"].ToString());
-                        }
-                        else
-                        {
-                            MessageBox.Show("Não encontrar o aluno", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-                        bd.Tabela.Close();
-                        bd.IdAluno = idaluno;
-                        bd.IdCurso = idcurso;
-                        bd.IdTurma = idturma;
-                        bd.Hora = hora;
-                        bd.CadTurma();
-                        if(bd.Resp > 0)
-                        {
-                            MessageBox.Show("Turma cadastra com sucesso", "Turma Cadastrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Não encontrar o aluno", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-                        bd.Usuario = login;
-                        bd.Senha = senha;
-                        bd.CliId();
-                        if (bd.Tabela.Read())
-                        {
-                            idfunc = int.Parse(bd.Tabela["id_func"].ToString());
-                        }
-                        else
-                        {
-                            MessageBox.Show("Não encontrar o funcionario", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-                        bd.Tabela.Close();
-                        bd.Id = idfunc;
-                        bd.IdAluno = idaluno;
-                        bd.TabCliFun();
-                        if(bd.Resp > 0)
-                        {
-                            MessageBox.Show("Cadastrado", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            txtRua.Clear();
-                            txtResponsavel.Clear();
-                            txtOrg.Clear();
-                            txtNum.Clear();
-                            txtNome.Clear();
-                            txtEmail.Clear();
-                            txtCidade.Clear();
-                            txtBairro.Clear();
-                            maskCel.Clear();
-                            maskCPF.Clear();
-                            maskDataNasc.Clear();
-                            maskMatricula.Clear();
-                            maskRG.Clear();
-                            maskTel.Clear();
-                            cbCurso.SelectedIndex = -1;
-                            cbEst.SelectedIndex = -1;
-                            cbHorario.SelectedIndex = -1;
-                            cbPAis.SelectedIndex = -1;
-                            cbTurma.SelectedIndex = -1;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Não foi possivel vincular funcionario com aluno", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
+                        bd.Conexao.Close();
             }
                 catch (System.FormatException err)
                 {
@@ -319,6 +373,56 @@ namespace CRUD
         private void tmrHora_Tick_1(object sender, EventArgs e)
         {
             stripHorario.Text = DateTime.Now.ToString();
+        }
+
+        private void cbCurso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCurso.SelectedIndex != -1)
+            {
+                BD bd = new BD();
+            
+                bd.NomeCurso = cbCurso.SelectedItem.ToString();
+                bd.Turma();
+                while (bd.Tabela.Read())
+                {
+                        cbTurma.Items.Add(bd.Tabela["nome_t"].ToString());
+                                   
+                }
+                if(bd.Tabela.HasRows == false)
+                {
+                    cbTurma.Items.RemoveAt(0);
+                }
+                bd.Tabela.Close();
+                bd.Conexao.Close();
+            }
+            
+
+        }
+
+        private void cbTurma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbTurma.SelectedIndex != -1)
+            {
+                BD bd = new BD();
+
+                bd.nomeTurma = cbTurma.SelectedItem.ToString();
+                bd.hTurma();
+                while (bd.Tabela.Read())
+                {
+                    cbHorario.Items.Add(bd.Tabela["hora_h"].ToString());
+                }
+                if(bd.Tabela.HasRows == false)
+                {
+                    cbHorario.Items.RemoveAt(0);
+                }
+                bd.Tabela.Close();
+                bd.Conexao.Close();
+            }
+        }
+
+        private void cbHorario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

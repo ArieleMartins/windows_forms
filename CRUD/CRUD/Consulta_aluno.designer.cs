@@ -195,6 +195,7 @@ namespace CRUD
             this.cbTurma.Name = "cbTurma";
             this.cbTurma.Size = new System.Drawing.Size(173, 23);
             this.cbTurma.TabIndex = 17;
+            this.cbTurma.SelectedIndexChanged += new System.EventHandler(this.cbTurma_SelectedIndexChanged);
             // 
             // label22
             // 
@@ -215,6 +216,7 @@ namespace CRUD
             this.cbCurso.Name = "cbCurso";
             this.cbCurso.Size = new System.Drawing.Size(194, 23);
             this.cbCurso.TabIndex = 16;
+            this.cbCurso.SelectedIndexChanged += new System.EventHandler(this.cbCurso_SelectedIndexChanged);
             // 
             // label12
             // 

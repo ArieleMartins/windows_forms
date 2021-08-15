@@ -18,6 +18,10 @@ namespace CRUD
         Image btaddmouse;
         Image btconsnormal;
         Image btconsmouse;
+        Image btcriar;
+        Image btconsulta;
+        Image btcriarmouse;
+        Image btconsultamouse;
         private string usuario;
         private string nomeusuario;
         private string privi;
@@ -30,6 +34,10 @@ namespace CRUD
             btaddmouse = Properties.Resources.botao_adicionar_brilhante;
             btconsnormal = Properties.Resources.Botao_consulta;
             btconsmouse = Properties.Resources.Botao_consulta_bilhante;
+            btcriar = Properties.Resources.botao_criar;
+            btcriarmouse = Properties.Resources.botao_criar_brilhante;
+            btconsultamouse = Properties.Resources.botao_consulta_brilhante;
+            btconsulta = Properties.Resources.botao_consulta1;
             
         }
 
@@ -100,6 +108,7 @@ namespace CRUD
             lblUsuario.Text = "";
             funcionario.Usuario = usuario;
             funcionario.Senha = senha;
+            funcionario.Privi = privi;
             this.Hide();
             funcionario.ShowDialog();
         }
@@ -109,6 +118,7 @@ namespace CRUD
             Consulta_func consulta = new Consulta_func();
             consulta.Usu = usuario;
             consulta.Senha = senha;
+            consulta.Privi = privi;
             this.Hide();
             consulta.ShowDialog();
         }
@@ -282,6 +292,7 @@ namespace CRUD
             Cadastro_Func funcionario = new Cadastro_Func();
             funcionario.Usuario = usuario;
             funcionario.Senha = senha;
+            funcionario.Privi = privi;
             this.Hide();
             funcionario.ShowDialog();
         }
@@ -294,6 +305,66 @@ namespace CRUD
             consulta.Privi = privi;
             this.Hide();
             consulta.ShowDialog();
+        }
+
+        private void criarTurmaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            criar_turma turma = new criar_turma();
+            turma.Privi = privi;
+            turma.Usuario = usuario;
+            turma.Senha = senha;
+            this.Hide();
+            turma.ShowDialog();
+        }
+
+        private void consultarToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            consultar_turma turma = new consultar_turma();
+            turma.Privi = privi;
+            turma.Usuario = usuario;
+            turma.Senha = senha;
+            this.Hide();
+            turma.ShowDialog();
+        }
+
+        private void pcTurma_MouseEnter(object sender, EventArgs e)
+        {
+            pcTurma.Image = btconsultamouse;
+        }
+
+        private void pcTurma_MouseLeave(object sender, EventArgs e)
+        {
+            pcTurma.Image = btconsulta;
+        }
+
+        private void pcCriar_MouseEnter(object sender, EventArgs e)
+        {
+            pcCriar.Image = btcriarmouse;
+        }
+
+        private void pcCriar_MouseLeave(object sender, EventArgs e)
+        {
+            pcCriar.Image = btcriar;
+        }
+
+        private void pcCriar_Click(object sender, EventArgs e)
+        {
+            criar_turma criar = new criar_turma();
+            criar.Privi = privi;
+            criar.Usuario = usuario;
+            criar.Senha = senha;
+            this.Hide();
+            criar.ShowDialog();
+        }
+
+        private void pcTurma_Click(object sender, EventArgs e)
+        {
+            consultar_turma turmas = new consultar_turma();
+            turmas.Privi = privi;
+            turmas.Usuario = usuario;
+            turmas.Senha = senha;
+            this.Hide();
+            turmas.ShowDialog();
         }
     }
 }

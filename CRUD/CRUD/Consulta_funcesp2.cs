@@ -18,6 +18,7 @@ namespace CRUD
         private string origem;
         private string foto;
         private string destino;
+        private string privi;
         private string usuario;
         private string senha;
         private string local;
@@ -370,6 +371,8 @@ namespace CRUD
                     MessageBox.Show("Dados da conta deletado!!!", "Conta Deletado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Consulta_func funcionario = new Consulta_func();
                     funcionario.Usu = usuario;
+                    funcionario.Senha = senha;
+                    funcionario.Privi = privi;
                     try
                     {
                         ptFoto.Image.Dispose();
@@ -427,6 +430,7 @@ namespace CRUD
             Consulta_func funcionario = new Consulta_func();
             funcionario.Usu = usuario;
             funcionario.Senha = senha;
+            funcionario.Privi = privi;
             this.Hide();
             funcionario.ShowDialog();
         }
@@ -438,7 +442,10 @@ namespace CRUD
         {
             set { this.senha = value; }
         }
-
+        public string Privi
+        {
+            set { this.privi = value; }
+        }
         private void pcBImg_MouseEnter(object sender, EventArgs e)
         {
             pcBImg.Image = Properties.Resources.CameraIcon2Brilante;

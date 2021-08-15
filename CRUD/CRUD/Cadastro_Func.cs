@@ -20,8 +20,10 @@ namespace CRUD
         private string destino;
         private DialogResult resp;
         private int id;
+        private string privi;
         private int idusuario;
         private int cad;
+        private List<string> cpfver = new List<string>();
         private string usuario;
         private string senha;
         public Cadastro_Func()
@@ -95,6 +97,23 @@ namespace CRUD
             else
             {
                 BD bd = new BD();
+                bd.Lista();
+                while (bd.Tabela.Read())
+                {
+                    cpfver.Add(bd.Tabela["cpf_func"].ToString());
+                }
+                if (bd.Tabela.HasRows == true)
+                {
+                    foreach (string listacpf in cpfver)
+                    {
+                        if (listacpf == maskCPF.Text)
+                        {
+                            MessageBox.Show("Já exite um funcionario com esse cpf cadastrado", "CPF Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+
+                    }
+                }
                 try
                 {
                     
@@ -367,6 +386,7 @@ namespace CRUD
             
             Menu menu = new Menu();
             BD bd = new BD();
+            menu.Privi = privi;
             menu.Usuario = usuario;
             menu.Senha = senha;
             this.Hide();
@@ -405,6 +425,10 @@ namespace CRUD
         public string Senha
         {
             set { this.senha = value; }
+        }
+        public string Privi
+        {
+            set { this.privi = value; }
         }
         private void pcBImg_MouseEnter(object sender, EventArgs e)
         {

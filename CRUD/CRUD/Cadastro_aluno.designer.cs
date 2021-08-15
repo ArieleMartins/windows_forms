@@ -79,19 +79,19 @@ namespace CRUD
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pcBImg = new System.Windows.Forms.PictureBox();
-            this.ptFoto = new System.Windows.Forms.PictureBox();
             this.tmrHora = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.stripHorario = new System.Windows.Forms.ToolStripLabel();
+            this.pcBImg = new System.Windows.Forms.PictureBox();
+            this.ptFoto = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcBImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptFoto)).BeginInit();
-            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -161,6 +161,7 @@ namespace CRUD
             this.cbHorario.Name = "cbHorario";
             this.cbHorario.Size = new System.Drawing.Size(139, 23);
             this.cbHorario.TabIndex = 19;
+            this.cbHorario.SelectedIndexChanged += new System.EventHandler(this.cbHorario_SelectedIndexChanged);
             // 
             // maskMatricula
             // 
@@ -182,6 +183,7 @@ namespace CRUD
             this.cbTurma.Name = "cbTurma";
             this.cbTurma.Size = new System.Drawing.Size(173, 23);
             this.cbTurma.TabIndex = 17;
+            this.cbTurma.SelectedIndexChanged += new System.EventHandler(this.cbTurma_SelectedIndexChanged);
             // 
             // label22
             // 
@@ -202,6 +204,7 @@ namespace CRUD
             this.cbCurso.Name = "cbCurso";
             this.cbCurso.Size = new System.Drawing.Size(194, 23);
             this.cbCurso.TabIndex = 16;
+            this.cbCurso.SelectedIndexChanged += new System.EventHandler(this.cbCurso_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -620,29 +623,6 @@ namespace CRUD
             this.label1.TabIndex = 2;
             this.label1.Text = "Data Nascimento:";
             // 
-            // pcBImg
-            // 
-            this.pcBImg.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pcBImg.Image = global::CRUD.Properties.Resources.CameraIcon2;
-            this.pcBImg.Location = new System.Drawing.Point(139, 148);
-            this.pcBImg.Name = "pcBImg";
-            this.pcBImg.Size = new System.Drawing.Size(32, 30);
-            this.pcBImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcBImg.TabIndex = 1;
-            this.pcBImg.TabStop = false;
-            this.pcBImg.Click += new System.EventHandler(this.pcBImg_Click);
-            this.pcBImg.MouseEnter += new System.EventHandler(this.pcBImg_MouseEnter);
-            this.pcBImg.MouseLeave += new System.EventHandler(this.pcBImg_MouseLeave);
-            // 
-            // ptFoto
-            // 
-            this.ptFoto.Location = new System.Drawing.Point(15, 25);
-            this.ptFoto.Name = "ptFoto";
-            this.ptFoto.Size = new System.Drawing.Size(156, 153);
-            this.ptFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptFoto.TabIndex = 0;
-            this.ptFoto.TabStop = false;
-            // 
             // tmrHora
             // 
             this.tmrHora.Interval = 1000;
@@ -666,6 +646,29 @@ namespace CRUD
             this.stripHorario.Size = new System.Drawing.Size(47, 22);
             this.stripHorario.Text = "Horario";
             // 
+            // pcBImg
+            // 
+            this.pcBImg.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pcBImg.Image = global::CRUD.Properties.Resources.CameraIcon2;
+            this.pcBImg.Location = new System.Drawing.Point(139, 148);
+            this.pcBImg.Name = "pcBImg";
+            this.pcBImg.Size = new System.Drawing.Size(32, 30);
+            this.pcBImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcBImg.TabIndex = 1;
+            this.pcBImg.TabStop = false;
+            this.pcBImg.Click += new System.EventHandler(this.pcBImg_Click);
+            this.pcBImg.MouseEnter += new System.EventHandler(this.pcBImg_MouseEnter);
+            this.pcBImg.MouseLeave += new System.EventHandler(this.pcBImg_MouseLeave);
+            // 
+            // ptFoto
+            // 
+            this.ptFoto.Location = new System.Drawing.Point(15, 25);
+            this.ptFoto.Name = "ptFoto";
+            this.ptFoto.Size = new System.Drawing.Size(156, 153);
+            this.ptFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptFoto.TabIndex = 0;
+            this.ptFoto.TabStop = false;
+            // 
             // Cadastro_aluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -686,10 +689,10 @@ namespace CRUD
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcBImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptFoto)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcBImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
