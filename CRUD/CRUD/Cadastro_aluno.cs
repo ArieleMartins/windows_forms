@@ -62,6 +62,7 @@ namespace CRUD
             }
             bd.Tabela.Close();
             bd.Conexao.Close();
+            cbHorario.Enabled = false;
         }
 
         private void btCadastro_Click(object sender, EventArgs e)
@@ -129,10 +130,10 @@ namespace CRUD
                         }
                         if (quanta == max)
                         {
-                            MessageBox.Show("Turma já concluida");
+                            MessageBox.Show("Turma já completa");
                             bd.IdTurma = idturma;
                             bd.nomeTurma = cbTurma.SelectedItem.ToString();
-                            bd.EstadoTurma = "Concluida";
+                            bd.EstadoTurma = "Completa";
                             bd.UpdateEstT();
                             bd.Tabela.Close();
                         }
@@ -377,6 +378,10 @@ namespace CRUD
 
         private void cbCurso_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbTurma.Items.Count != 0)
+            {
+                cbTurma.Items.Clear();
+            }
             if (cbCurso.SelectedIndex != -1)
             {
                 BD bd = new BD();
@@ -390,17 +395,42 @@ namespace CRUD
                 }
                 if(bd.Tabela.HasRows == false)
                 {
-                    cbTurma.Items.RemoveAt(0);
+                    if (cbTurma.Items.Count != 0)
+                    {
+                        cbTurma.Text = "";
+                        cbTurma.Items.Clear();
+                    }
                 }
                 bd.Tabela.Close();
                 bd.Conexao.Close();
             }
-            
+            else
+            {
+                if (cbTurma.Items.Count != 0)
+                {
+                    cbTurma.Text = "";
+                    cbTurma.Items.Clear();
+                }
+            }
+            if (cbTurma.SelectedIndex == -1)
+            {
+                cbTurma.Text = "";
+                if (cbHorario.Items.Count != 0)
+                {
+                    cbHorario.Text = "";
+                    cbHorario.Items.Clear();
+                }
+            }
+
 
         }
 
         private void cbTurma_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbHorario.Items.Count != 0)
+            {
+                cbHorario.Items.Clear();
+            }
             if (cbTurma.SelectedIndex != -1)
             {
                 BD bd = new BD();
@@ -409,20 +439,37 @@ namespace CRUD
                 bd.hTurma();
                 while (bd.Tabela.Read())
                 {
+                    
                     cbHorario.Items.Add(bd.Tabela["hora_h"].ToString());
                 }
                 if(bd.Tabela.HasRows == false)
                 {
-                    cbHorario.Items.RemoveAt(0);
+                    if (cbHorario.Items.Count != 0)
+                    {
+                        cbHorario.Text = "";
+                        cbHorario.Items.Clear();
+                    }
+                }
+                else
+                {
+                    cbHorario.Enabled = true;
                 }
                 bd.Tabela.Close();
                 bd.Conexao.Close();
+            }
+            else if(cbTurma.SelectedIndex == -1 || cbTurma.Text == "")
+            {
+                if (cbHorario.Items.Count != 0)
+                {
+                    cbHorario.Text = "";
+                    cbHorario.Items.Clear();
+                }
             }
         }
 
         private void cbHorario_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
